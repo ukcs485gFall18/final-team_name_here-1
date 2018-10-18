@@ -12,7 +12,7 @@
         <!--Profile-->
         <scene sceneID="Ajb-mo-LS0">
             <objects>
-                <viewController id="zme-1Z-Euu" sceneMemberID="viewController">
+                <viewController id="zme-1Z-Euu" customClass="ProfileViewController" customModule="DeskPotatoes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RFF-b2-gu0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,7 @@
         <!--Workout-->
         <scene sceneID="7Yj-s2-87g">
             <objects>
-                <viewController id="H6d-DL-7A8" sceneMemberID="viewController">
+                <viewController id="H6d-DL-7A8" customClass="WorkoutViewController" customModule="DeskPotatoes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fWC-8B-0d5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,7 +44,7 @@
         <!--Community-->
         <scene sceneID="QsL-Yr-jY2">
             <objects>
-                <viewController id="LZF-Hu-Cwr" sceneMemberID="viewController">
+                <viewController id="LZF-Hu-Cwr" customClass="CommunityViewController" customModule="DeskPotatoes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HVd-v2-1TR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
