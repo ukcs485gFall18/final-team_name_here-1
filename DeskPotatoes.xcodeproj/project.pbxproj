@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E1D17B4217FBF9B00D3009C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E1D17B3217FBF9B00D3009C /* Assets.xcassets */; };
 		7EF549DF21791F99006BC81E /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF549DE21791F99006BC81E /* WorkoutViewController.swift */; };
 		7EF549E121792023006BC81E /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF549E021792023006BC81E /* CommunityViewController.swift */; };
 		7EF549E32179203B006BC81E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF549E22179203B006BC81E /* ProfileViewController.swift */; };
 		FDAACC782176789B0005AF23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAACC772176789B0005AF23 /* AppDelegate.swift */; };
 		FDAACC7A2176789B0005AF23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAACC792176789B0005AF23 /* ViewController.swift */; };
 		FDAACC7D2176789B0005AF23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDAACC7B2176789B0005AF23 /* Main.storyboard */; };
-		FDAACC7F2176789D0005AF23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDAACC7E2176789D0005AF23 /* Assets.xcassets */; };
 		FDAACC822176789D0005AF23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDAACC802176789D0005AF23 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E1D17B3217FBF9B00D3009C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7EF549DE21791F99006BC81E /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		7EF549E021792023006BC81E /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		7EF549E22179203B006BC81E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -25,7 +26,6 @@
 		FDAACC772176789B0005AF23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDAACC792176789B0005AF23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FDAACC7C2176789B0005AF23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FDAACC7E2176789D0005AF23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FDAACC812176789D0005AF23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FDAACC832176789D0005AF23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,8 +66,8 @@
 				7EF549E021792023006BC81E /* CommunityViewController.swift */,
 				7EF549E22179203B006BC81E /* ProfileViewController.swift */,
 				FDAACC7B2176789B0005AF23 /* Main.storyboard */,
-				FDAACC7E2176789D0005AF23 /* Assets.xcassets */,
 				FDAACC802176789D0005AF23 /* LaunchScreen.storyboard */,
+				7E1D17B3217FBF9B00D3009C /* Assets.xcassets */,
 				FDAACC832176789D0005AF23 /* Info.plist */,
 			);
 			path = DeskPotatoes;
@@ -132,7 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDAACC822176789D0005AF23 /* LaunchScreen.storyboard in Resources */,
-				FDAACC7F2176789D0005AF23 /* Assets.xcassets in Resources */,
+				7E1D17B4217FBF9B00D3009C /* Assets.xcassets in Resources */,
 				FDAACC7D2176789B0005AF23 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
