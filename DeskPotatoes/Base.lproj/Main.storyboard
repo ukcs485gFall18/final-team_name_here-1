@@ -35,10 +35,10 @@
             </objects>
             <point key="canvasLocation" x="87" y="134"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Medal Table View Controller-->
         <scene sceneID="ZlD-Se-PWa">
             <objects>
-                <tableViewController id="cjs-yM-V6G" sceneMemberID="viewController">
+                <tableViewController id="cjs-yM-V6G" customClass="MedalTableViewController" customModule="DeskPotatoes" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ESZ-21-Cb9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

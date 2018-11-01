@@ -60,8 +60,8 @@
 			children = (
 				FDAACC772176789B0005AF23 /* AppDelegate.swift */,
 				FDAACC792176789B0005AF23 /* ViewController.swift */,
-				BB146104218BA3EC001D76B5 /* MedalsTableViewCell.swift */,
 				BB146106218BA99F001D76B5 /* MedalTableViewController.swift */,
+				BB146104218BA3EC001D76B5 /* MedalsTableViewCell.swift */,
 				FDAACC7B2176789B0005AF23 /* Main.storyboard */,
 				FDAACC7E2176789D0005AF23 /* Assets.xcassets */,
 				FDAACC802176789D0005AF23 /* LaunchScreen.storyboard */,

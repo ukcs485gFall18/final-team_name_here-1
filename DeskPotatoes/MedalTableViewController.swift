@@ -37,13 +37,15 @@ class MedalTableViewController: UITableViewController {
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MedalsTableViewCell", for: indexPath)
+        
+        cell.textLabel?.text = "Section \(indexPath.section) Row \(indexPath.row)"
 
         // Configure the cell...
 
         return cell
-    }
-    */
+    }*/
+    
 
     /*
     // Override to support conditional editing of the table view.
