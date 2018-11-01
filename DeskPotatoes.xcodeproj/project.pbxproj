@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB146105218BA3EC001D76B5 /* MedalsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB146104218BA3EC001D76B5 /* MedalsTableViewCell.swift */; };
+		BB146107218BA99F001D76B5 /* MedalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB146106218BA99F001D76B5 /* MedalTableViewController.swift */; };
 		FDAACC782176789B0005AF23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAACC772176789B0005AF23 /* AppDelegate.swift */; };
 		FDAACC7A2176789B0005AF23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAACC792176789B0005AF23 /* ViewController.swift */; };
 		FDAACC7D2176789B0005AF23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDAACC7B2176789B0005AF23 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB146104218BA3EC001D76B5 /* MedalsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedalsTableViewCell.swift; sourceTree = "<group>"; };
+		BB146106218BA99F001D76B5 /* MedalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedalTableViewController.swift; sourceTree = "<group>"; };
 		FDAACC742176789B0005AF23 /* DeskPotatoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeskPotatoes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAACC772176789B0005AF23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDAACC792176789B0005AF23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +60,8 @@
 			children = (
 				FDAACC772176789B0005AF23 /* AppDelegate.swift */,
 				FDAACC792176789B0005AF23 /* ViewController.swift */,
+				BB146104218BA3EC001D76B5 /* MedalsTableViewCell.swift */,
+				BB146106218BA99F001D76B5 /* MedalTableViewController.swift */,
 				FDAACC7B2176789B0005AF23 /* Main.storyboard */,
 				FDAACC7E2176789D0005AF23 /* Assets.xcassets */,
 				FDAACC802176789D0005AF23 /* LaunchScreen.storyboard */,
@@ -135,8 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB146105218BA3EC001D76B5 /* MedalsTableViewCell.swift in Sources */,
 				FDAACC7A2176789B0005AF23 /* ViewController.swift in Sources */,
 				FDAACC782176789B0005AF23 /* AppDelegate.swift in Sources */,
+				BB146107218BA99F001D76B5 /* MedalTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
