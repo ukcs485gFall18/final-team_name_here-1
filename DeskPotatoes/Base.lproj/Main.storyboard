@@ -603,6 +603,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zfC-um-OsA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="193" y="-482"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
