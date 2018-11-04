@@ -39,19 +39,57 @@ class HealthKitManager {
         }
     }
     
-    func shareData(dataType: HKQuantityTypeIdentifier, data: HKObject) {
+    func shareData(dataType: HKQuantityTypeIdentifier, value: Double, date: NSDate, completion:((HKSample?, NSError?) -> Void)!) {
         /* Share Data: Darren Powers
-         * This function takes a HealthKit Quantity Type Identifier and a HealthKit Object as parameters
+         * This function takes a HealthKit quantity type identifier a value (a number), and a date as parameters
          * and does the work of saving the data appropriately to HealthKit
          */
-/* TO DO: Code for Share Data */
+        
+        //Make sure permissions granted for specific data type
+        let authorizeShare = Set(arrayLiteral: HKObjectType.quantityType(forIdentifier: dataType))
+        authorizeHealthKit(share: (authorizeShare as! Set<HKSampleType>), read: nil) { (success, error) -> Void in
+            if !success {
+                print("Unable to get permissions")
+            }
+        }
+        
+        //set quantity type
+        let quantityType = HKQuantityType.quantityType(forIdentifier: dataType)
+        
+        //set quantity units appropriately
+        var quantity: HKQuantity? = nil
+        switch dataType {
+        case .distanceWalkingRunning:
+            quantity = HKQuantity(unit: HKUnit.mile(), doubleValue: value)
+        default:
+            print("shareData error")
+        }
+        
+        //set Quantity Sample
+        let sample = HKQuantitySample(type: quantityType!, quantity: quantity!, start: date as Date, end: date as Date)
+        
+        // Save Quantity Sample to the HealthKit Store
+        healthKitStore.save(sample, withCompletion: { (success, error) -> Void in
+            if( error != nil ) {
+                print(error!)
+            } else {
+                print("The sample has been recorded! Better go check!")
+            }
+        })
     }
     
     func readData(dataType: HKObjectType, completion:((HKObject?, NSError?) -> Void)!) {
 /* Read Data: Darren Powers
- * This function takes a HealthKit QUantity Type Identifier and a Healthkit Object target as parameters
- * and retrieves the specified information from HealthKit
+ * This function takes a HealthKit ObjectType, an abstract object type, which can be a SampleType or ActivityType,
+ * and retrieves the related information from HealthKit
  */
+        // Make sure permissions granted for specified data type
+        let authorizeRead = Set(arrayLiteral: dataType)
+        authorizeHealthKit(share: nil, read: authorizeRead) { (success, error) -> Void in
+            if !success {
+                print("Unable to get permissions")
+            }
+        }
         if let data = dataType as? HKSampleType { //The data coming in is sample-type data
             // Build query predicate
             let distantPast = NSDate.distantPast as NSDate
