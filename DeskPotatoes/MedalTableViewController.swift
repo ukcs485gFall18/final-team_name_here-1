@@ -14,6 +14,9 @@ class MedalTableViewController: UITableViewController {
     //var medals = [Medal]()
     
     
+    //New comment
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -123,7 +126,7 @@ class MedalTableViewController: UITableViewController {
         medals.append(medal2)
         medals.append(medal3)
         
-        print (medals)
+        //print (medals)
         
 
     }
