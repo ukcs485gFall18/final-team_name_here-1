@@ -11,10 +11,14 @@ import UIKit
 class MedalTableViewController: UITableViewController {
 
     
+    //var medals = [Medal]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        loadMedals()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -92,10 +96,36 @@ class MedalTableViewController: UITableViewController {
     }
     */
 
-    private func loadMedals()
+    public func loadMedals()
     {
         
+        class Medal {
+            var name: String
+            var unlocked: Bool
+            init(name: String, unlocked: Bool){
+                self.name = name
+                self.unlocked = unlocked
+            }
+        }
         
+        var medals: [Medal] = []
+        
+        let medal1 = Medal(name: "Welcome", unlocked: false)
+        //When the user opens the Medal page this will unlock
+        
+        let medal2 = Medal(name: "Walk a Mile in my Shoes", unlocked: false)
+        //When the user exercises for the first time
+        
+        let medal3 = Medal(name: "Welcome part 2", unlocked: false)
+        //When the user opens the Medal page again
+        
+        medals.append(medal1)
+        medals.append(medal2)
+        medals.append(medal3)
+        
+        print (medals)
+        
+
     }
     
 }
