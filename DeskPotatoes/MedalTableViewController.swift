@@ -43,19 +43,26 @@ class MedalTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return medals.count
     }
     
-    /*
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "MedalsTableViewCell", for: indexPath)
+    
+     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+     {
+        let cellIdentifier = "MedalsTableViewCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MedalsTableViewCell else {
+            fatalError("Error cell is not an instance of the view cell")
+        }
+        
+        let medal = medals[indexPath.row]
      
-     cell.textLabel?.text = "Section \(indexPath.section) Row \(indexPath.row)"
+        //cell.textLabel?.text = "Section \(indexPath.section) Row \(indexPath.row)"
      
-     // Configure the cell...
+        cell.textLabel?.text = medal.name
      
-     return cell
-     }*/
+        return cell
+     }
     
     
     /*
