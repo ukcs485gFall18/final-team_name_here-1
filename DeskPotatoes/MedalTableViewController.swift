@@ -21,6 +21,8 @@ class MedalTableViewController: UITableViewController {
     
     var medals: [Medal] = []
     
+    var try_variable = "Hey it works!"
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,6 +130,13 @@ class MedalTableViewController: UITableViewController {
         
         print(medals.count)
         print("hello")
+        
+        var testThis: Bool
+        
+        testThis = medal1.unlocked
+        
+        print(testThis)
+    
         
     }
     

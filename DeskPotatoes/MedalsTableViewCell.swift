@@ -10,12 +10,24 @@ import UIKit
 
 class MedalsTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var medal1: UILabel!
+    var myCustomViewController: MedalTableViewController = MedalTableViewController()
+    
     @IBOutlet weak var medal1des: UILabel!
+    
+    var medalName: String = "Locked"
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        print(myCustomViewController.try_variable)
+        
+        medal1des.text = medalName
+        
+        
+        
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
