@@ -16,20 +16,20 @@ class MedalsTableViewCell: UITableViewCell {
     
     var medalName: String = "Locked"
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        print(myCustomViewController.try_variable)
+        
+        if myCustomViewController.testThis == true {
+            print("testThis var worked!")
+            medalName = "Unlocked"
+        } else {
+            print(myCustomViewController.testThis)
+            medalName = "Locked"
+        }
         
         medal1des.text = medalName
-        
-        
-        
-        
-        
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

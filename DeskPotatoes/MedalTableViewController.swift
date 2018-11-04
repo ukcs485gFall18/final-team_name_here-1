@@ -23,6 +23,7 @@ class MedalTableViewController: UITableViewController {
     
     var try_variable = "Hey it works!"
     
+    var testThis: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,16 +129,20 @@ class MedalTableViewController: UITableViewController {
         medals.append(medal2)
         medals.append(medal3)
         
-        print(medals.count)
-        print("hello")
-        
-        var testThis: Bool
-        
         testThis = medal1.unlocked
         
-        print(testThis)
-    
+        /*
+         * let unlock = [Bool]()
+         * unlock = medals.map()
+         * I tried to map all of the bool values in the array medals to a new array but was unable to
+         */
         
+        
+        //print(medals.count)
+        //print("hello")
+        
+        //print(testThis)
+    
     }
     
 }
