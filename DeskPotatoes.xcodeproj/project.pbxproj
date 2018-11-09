@@ -30,19 +30,19 @@
 		03ABAD34D6248E98A711943D /* Pods-DeskPotatoes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeskPotatoes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DeskPotatoes/Pods-DeskPotatoes.debug.xcconfig"; sourceTree = "<group>"; };
 		4F622C5F11FCA6FCAFAF9165 /* Pods_DeskPotatoes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeskPotatoes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CAC2B85883747859CDE61C0 /* Pods-DeskPotatoes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeskPotatoes.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeskPotatoes/Pods-DeskPotatoes.release.xcconfig"; sourceTree = "<group>"; };
-		7E0C242721869F8C0090DF62 /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LogViewController.swift; path = Controllers/LogViewController.swift; sourceTree = "<group>"; };
-		7E0C242B21869FAC0090DF62 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = Controllers/SignUpViewController.swift; sourceTree = "<group>"; };
+		7E0C242721869F8C0090DF62 /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
+		7E0C242B21869FAC0090DF62 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		7E1D17B3217FBF9B00D3009C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7EDEF2A4218790CE0064A548 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomePageViewController.swift; path = Controllers/HomePageViewController.swift; sourceTree = "<group>"; };
-		7EF549DE21791F99006BC81E /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorkoutViewController.swift; path = Controllers/WorkoutViewController.swift; sourceTree = "<group>"; };
-		7EF549E021792023006BC81E /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CommunityViewController.swift; path = Controllers/CommunityViewController.swift; sourceTree = "<group>"; };
-		7EF549E22179203B006BC81E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = Controllers/ProfileViewController.swift; sourceTree = "<group>"; };
-		BB146104218BA3EC001D76B5 /* MedalsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MedalsTableViewCell.swift; path = Controllers/MedalsTableViewCell.swift; sourceTree = "<group>"; };
-		BB146106218BA99F001D76B5 /* MedalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MedalTableViewController.swift; path = Controllers/MedalTableViewController.swift; sourceTree = "<group>"; };
+		7EDEF2A4218790CE0064A548 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		7EF549DE21791F99006BC81E /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
+		7EF549E021792023006BC81E /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
+		7EF549E22179203B006BC81E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BB146104218BA3EC001D76B5 /* MedalsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedalsTableViewCell.swift; sourceTree = "<group>"; };
+		BB146106218BA99F001D76B5 /* MedalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedalTableViewController.swift; sourceTree = "<group>"; };
 		FD718F082195191A005F50B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FDAACC742176789B0005AF23 /* DeskPotatoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeskPotatoes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAACC772176789B0005AF23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FDAACC792176789B0005AF23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Controllers/ViewController.swift; sourceTree = "<group>"; };
+		FDAACC792176789B0005AF23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FDAACC7C2176789B0005AF23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FDAACC812176789D0005AF23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FDAACC832176789D0005AF23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -73,6 +73,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FD718F0A21951BD3005F50B3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FDAACC792176789B0005AF23 /* ViewController.swift */,
+				BB146106218BA99F001D76B5 /* MedalTableViewController.swift */,
+				BB146104218BA3EC001D76B5 /* MedalsTableViewCell.swift */,
+				7EDEF2A4218790CE0064A548 /* HomePageViewController.swift */,
+				7EF549DE21791F99006BC81E /* WorkoutViewController.swift */,
+				7EF549E021792023006BC81E /* CommunityViewController.swift */,
+				7EF549E22179203B006BC81E /* ProfileViewController.swift */,
+				7E0C242721869F8C0090DF62 /* LogViewController.swift */,
+				7E0C242B21869FAC0090DF62 /* SignUpViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		FDAACC6B2176789B0005AF23 = {
 			isa = PBXGroup;
 			children = (
@@ -94,23 +110,15 @@
 		FDAACC762176789B0005AF23 /* DeskPotatoes */ = {
 			isa = PBXGroup;
 			children = (
+				FD718F0A21951BD3005F50B3 /* Controllers */,
 				FDDB7825217FB4E00048C95C /* DeskPotatoes.entitlements */,
 				FDDB7822217FB4970048C95C /* Managers */,
 				FDAACC772176789B0005AF23 /* AppDelegate.swift */,
-				FDAACC792176789B0005AF23 /* ViewController.swift */,
-				BB146106218BA99F001D76B5 /* MedalTableViewController.swift */,
-				BB146104218BA3EC001D76B5 /* MedalsTableViewCell.swift */,
 				FDAACC7B2176789B0005AF23 /* Main.storyboard */,
 				FDAACC802176789D0005AF23 /* LaunchScreen.storyboard */,
 				7E1D17B3217FBF9B00D3009C /* Assets.xcassets */,
 				FDAACC832176789D0005AF23 /* Info.plist */,
 				FD718F082195191A005F50B3 /* GoogleService-Info.plist */,
-				7EDEF2A4218790CE0064A548 /* HomePageViewController.swift */,
-				7EF549DE21791F99006BC81E /* WorkoutViewController.swift */,
-				7EF549E021792023006BC81E /* CommunityViewController.swift */,
-				7EF549E22179203B006BC81E /* ProfileViewController.swift */,
-				7E0C242721869F8C0090DF62 /* LogViewController.swift */,
-				7E0C242B21869FAC0090DF62 /* SignUpViewController.swift */,
 			);
 			path = DeskPotatoes;
 			sourceTree = "<group>";
