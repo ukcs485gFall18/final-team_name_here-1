@@ -138,31 +138,49 @@
                                 <rect key="frame" x="123" y="379" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="start"/>
+                                <connections>
+                                    <action selector="startTimer:" destination="H6d-DL-7A8" eventType="touchUpInside" id="q79-5F-Ley"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSU-1O-VDX" userLabel="Stop Button">
                                 <rect key="frame" x="38" y="460" width="104" height="104"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="pause"/>
+                                <connections>
+                                    <action selector="stopTimer:" destination="H6d-DL-7A8" eventType="touchUpInside" id="Krw-oS-JKy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Wq-Lg-wxO" userLabel="Share Button">
                                 <rect key="frame" x="229" y="458" width="106" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="share"/>
+                                <connections>
+                                    <action selector="share:" destination="H6d-DL-7A8" eventType="touchUpInside" id="UDa-Do-cYW"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNm-Ur-bUB" userLabel="Walking Button">
                                 <rect key="frame" x="18" y="38" width="88" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Walk" image="walking"/>
+                                <connections>
+                                    <action selector="chooseToWalk:" destination="H6d-DL-7A8" eventType="touchUpInside" id="oGd-Lk-hRc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCe-u6-u8f" userLabel="Riding Button">
                                 <rect key="frame" x="271" y="38" width="84" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Ride" image="riding"/>
+                                <connections>
+                                    <action selector="chooseToCycle:" destination="H6d-DL-7A8" eventType="touchUpInside" id="f4Q-7U-VeQ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BsJ-lc-hM9" userLabel="Running Button">
                                 <rect key="frame" x="147" y="38" width="80" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Run" image="running"/>
+                                <connections>
+                                    <action selector="chooseToRun:" destination="H6d-DL-7A8" eventType="touchUpInside" id="yR9-WZ-BYP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.26211798827869992" green="0.2528992549068278" blue="0.34055889378557547" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -173,7 +191,10 @@
                         <outlet property="calorie" destination="Gha-fU-PT4" id="Ozj-Lu-4RN"/>
                         <outlet property="distance" destination="y5L-pS-YlI" id="jjz-Lf-2mp"/>
                         <outlet property="mph" destination="7NA-oR-9RF" id="ziK-Ca-InU"/>
+                        <outlet property="rideButton" destination="MCe-u6-u8f" id="6Zo-Qh-WGN"/>
+                        <outlet property="runButton" destination="BsJ-lc-hM9" id="9Ze-pY-EDV"/>
                         <outlet property="time" destination="bkx-Ha-O0x" id="Pun-Fy-iqL"/>
+                        <outlet property="walkButton" destination="QNm-Ur-bUB" id="Lcz-Cr-xdv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sLU-PH-Dhm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -410,6 +431,17 @@
                         <viewLayoutGuide key="safeArea" id="o4d-va-Qrl"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="Home" id="BRX-62-pLK"/>
+                    <connections>
+                        <outlet property="bmiLabel" destination="Nvi-iT-1in" id="CXR-A8-5ul"/>
+                        <outlet property="heightLabel" destination="GOS-1m-DMq" id="Ekr-0C-8q6"/>
+                        <outlet property="totalDistance" destination="26F-T4-BOo" id="ma4-0M-n0Y"/>
+                        <outlet property="totalDistanceToday" destination="tHj-0D-AVR" id="0U0-51-t2g"/>
+                        <outlet property="totalEnergy" destination="Tc0-Ji-Nh4" id="JY3-k6-ru6"/>
+                        <outlet property="totalEnergyIntake" destination="lLn-lV-S4E" id="HEf-Ru-BiS"/>
+                        <outlet property="totalEnergyToday" destination="JOk-pC-Nql" id="Ufg-aV-BOY"/>
+                        <outlet property="totalExerciseTime" destination="vxs-DM-q2G" id="zDu-H5-ouq"/>
+                        <outlet property="weightLabel" destination="Jzr-EV-ACI" id="maE-Go-0mY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gle-ek-VKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

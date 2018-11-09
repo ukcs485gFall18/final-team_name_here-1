@@ -7,8 +7,23 @@
 //
 
 import UIKit
+import HealthKit
 
 class HomePageViewController: UIViewController {
+    @IBOutlet weak var totalExerciseTime: UILabel!
+    
+    @IBOutlet weak var heightLabel: UILabel!
+    @IBOutlet weak var weightLabel: UILabel!
+    @IBOutlet weak var bmiLabel: UILabel!
+    
+    @IBOutlet weak var totalDistanceToday: UILabel!
+    @IBOutlet weak var totalEnergyToday: UILabel!
+    
+    @IBOutlet weak var totalDistance: UILabel!
+    @IBOutlet weak var totalEnergy: UILabel!
+    @IBOutlet weak var totalEnergyIntake: UILabel!
+    
+    let healthManager:HealthKitManager = HealthKitManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
