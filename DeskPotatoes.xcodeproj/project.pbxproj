@@ -73,7 +73,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		FD718F0A21951BD3005F50B3 /* Controllers */ = {
+		FD718F0C2195F0F2005F50B3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				FDAACC792176789B0005AF23 /* ViewController.swift */,
@@ -86,7 +86,7 @@
 				7E0C242721869F8C0090DF62 /* LogViewController.swift */,
 				7E0C242B21869FAC0090DF62 /* SignUpViewController.swift */,
 			);
-			name = Controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		FDAACC6B2176789B0005AF23 = {
@@ -110,7 +110,7 @@
 		FDAACC762176789B0005AF23 /* DeskPotatoes */ = {
 			isa = PBXGroup;
 			children = (
-				FD718F0A21951BD3005F50B3 /* Controllers */,
+				FD718F0C2195F0F2005F50B3 /* Controllers */,
 				FDDB7825217FB4E00048C95C /* DeskPotatoes.entitlements */,
 				FDDB7822217FB4970048C95C /* Managers */,
 				FDAACC772176789B0005AF23 /* AppDelegate.swift */,
