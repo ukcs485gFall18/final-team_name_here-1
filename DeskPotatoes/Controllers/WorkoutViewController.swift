@@ -51,7 +51,7 @@ class WorkoutViewController: UIViewController, CLLocationManagerDelegate {
         
         // We cannot access the user's HealthKit data without specific permission.
         if #available(iOS 9.3, *) {
-            getHealthKitPermission()
+            //getHealthKitPermission()
         } else {
             // Fallback on earlier versions
         }
@@ -59,22 +59,7 @@ class WorkoutViewController: UIViewController, CLLocationManagerDelegate {
         // Do any additional setup after loading the view.
     }
     
-    @available(iOS 9.3, *)
-    func getHealthKitPermission() {
-        
-        // Seek authorization in HealthKitManager.swift.
-        healthKitManager.authorizeHealthKit { share: nil, read: nil, (authorized, error) -> Void in
-            if authorized {
-                // Do something
-                
-            } else {
-                if error != nil {
-                    print(error!)
-                }
-                print("Permission denied.")
-            }
-        }
-    }
+
     
     /* Get current position
      * Without startLocation, data will be stored in startLocation
@@ -135,13 +120,21 @@ class WorkoutViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func share(_ sender: AnyObject) {
         switch selectedMode {
         case WALKING:
-            <#code#>healthKitManager.shareDate(dataType: HKQuantityTypeIdentifier.distanceWalkingRunning，value: distanceTraveled, date: NSDate(), completion:((HKSample?, error) -> Void)!)
+            healthManager.shareData(dataType: HKQuantityTypeIdentifier.distanceWalkingRunning, value: distanceTraveled, date: NSDate()) { (sample, error) in
+                print("It worked")
+                }
         case RUNNING:
-            <#code#>healthKitManager.shareDate(HKQuantityTypeIdentifier.distanceWalkingRunning, value: distanceTraveled, date: NSDate())
+            healthManager.shareData(dataType: HKQuantityTypeIdentifier.distanceWalkingRunning, value: distanceTraveled, date: NSDate()) { (sample, error) in
+                print("Running Worked")
+            }
         case RIDING:
-            <#code#>healthKitManager.shareDate(HKQuantityTypeIdentifier.distanceCycling, value: distanceTraveled, date: NSDate())
+            healthManager.shareData(dataType: HKQuantityTypeIdentifier.distanceCycling, value: distanceTraveled, date: NSDate()) { (sample, error) in
+                print("riding worked")
+            }
         default:
-            <#code#>healthKitManager.shareDate(dataType: HKQuantityTypeIdentifier.distanceWalkingRunning，value: distanceTraveled, date: NSDate())
+            healthManager.shareData(dataType: HKQuantityTypeIdentifier.distanceWalkingRunning, value: distanceTraveled, date: NSDate()) { (sample, error) in
+                print("DEFAULT")
+            }
         }
     }
     
