@@ -499,6 +499,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="login:" destination="X64-1A-6hi" eventType="touchUpInside" id="aLe-xl-ZN0"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Not a member?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUa-5T-fk7">
                                 <rect key="frame" x="29" y="384" width="140" height="26"/>
@@ -512,11 +515,26 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="SignUp Here"/>
+                                <connections>
+                                    <segue destination="0Li-qG-69T" kind="show" id="Kuy-Zd-1ep"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Waiting..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A82-LU-bUX">
+                                <rect key="frame" x="29" y="439" width="72" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6gr-DE-CfA"/>
                     </view>
+                    <connections>
+                        <outlet property="LabelStatus" destination="A82-LU-bUX" id="tOo-Kd-efI"/>
+                        <outlet property="TextFieldPassword" destination="FIo-8R-e3S" id="mLK-1U-1EN"/>
+                        <outlet property="TextFieldUsername" destination="Nlt-6U-CfH" id="e1g-p8-Ifa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3K-kj-1SX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
