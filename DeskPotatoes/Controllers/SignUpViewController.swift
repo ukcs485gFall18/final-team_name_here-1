@@ -7,9 +7,19 @@
 //
 
 import UIKit
+import Firebase
 
 class SignUpViewController: UIViewController {
-
+    @IBOutlet weak var firstName: UITextField!
+    @IBOutlet weak var lastName: UITextField!
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var password: UITextField!
+    
+    @IBOutlet weak var submitBTN: UIButton!
+    
+    // reference from: https://stackoverflow.com/questions/37330220/cannot-call-value-of-non-function-type-modulefirebase
+    var rootRef = Database.database().reference()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -611,6 +611,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="VhS-bv-fdx"/>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="aQy-4v-f0T" id="SIs-sD-dIJ"/>
+                        <outlet property="firstName" destination="leP-mO-xog" id="1F9-wq-ZnA"/>
+                        <outlet property="lastName" destination="htu-XS-Px4" id="Fa1-TY-K6K"/>
+                        <outlet property="password" destination="6nm-IO-Mos" id="n1j-og-t0B"/>
+                        <outlet property="submitBTN" destination="T2c-sr-5JT" id="dVD-ME-Om7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Duw-WJ-L6G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
