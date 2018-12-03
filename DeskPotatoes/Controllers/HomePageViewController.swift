@@ -24,11 +24,80 @@ class HomePageViewController: UIViewController {
     @IBOutlet weak var totalEnergyIntake: UILabel!
     
     let healthManager:HealthKitManager = HealthKitManager()
+    var height: HKQuantitySample?
+    var weight: HKQuantitySample?
+    
+    func setHeight(){
+        let heightSample = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)
+        
+        self.healthManager.readData(dataType: heightSample!, completion: { (userHeight, error) -> Void in
+            
+            if( error != nil ) {
+                print("Error: \(String(describing: error?.localizedDescription))")
+                return
+            }
+            
+            var heightString = ""
+            self.height = userHeight as? HKQuantitySample
+            
+            // The height is formatted to the user's locale.
+            if let meters = self.height?.quantity.doubleValue(for: HKUnit.meter()) {
+                let formatHeight = LengthFormatter()
+                formatHeight.isForPersonHeightUse = true
+                heightString = formatHeight.string(fromMeters: meters)
+            }
+            
+            DispatchQueue.global(qos: .userInitiated).async{
+                DispatchQueue.main.async {
+                    self.heightLabel.text = heightString
+                }
+            }
+        })
+    }
+    
+    func setWeight(){
+        let weightSample = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)
+        
+        self.healthManager.readData(dataType: weightSample!, completion: { (userWeight, error) -> Void in
+            
+            if( error != nil ) {
+                print("Error: \(String(describing: error?.localizedDescription))")
+                return
+            }
+            
+            var weightString = ""
+            self.weight = userWeight as? HKQuantitySample
+            
+            // The weight is formatted to the user's locale.
+            if let meters = self.height?.quantity.doubleValue(for: HKUnit.meter()) {
+                let formatHeight = LengthFormatter()
+                formatHeight.isForPersonHeightUse = true
+                weightString = formatHeight.string(fromMeters: meters)
+            }
+            
+            DispatchQueue.global(qos: .userInitiated).async{
+                DispatchQueue.main.async {
+                    self.weightLabel.text = weightString
+                }
+            }
+        })
+    }
+    
+    func setBMI(){
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setHeight()
+        setWeight()
+        setBMI()
         // Do any additional setup after loading the view.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
 
