@@ -26,6 +26,9 @@ class HomePageViewController: UIViewController {
     let healthManager:HealthKitManager = HealthKitManager()
     var height: HKQuantitySample?
     var weight: HKQuantitySample?
+    var meterForBMI: Double?
+    var kilogramForBMI: Double?
+    
     
     func setHeight(){
         let heightSample = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)
@@ -42,6 +45,7 @@ class HomePageViewController: UIViewController {
             
             // The height is formatted to the user's locale.
             if let meters = self.height?.quantity.doubleValue(for: HKUnit.meter()) {
+                self.meterForBMI = meters
                 let formatHeight = LengthFormatter()
                 formatHeight.isForPersonHeightUse = true
                 heightString = formatHeight.string(fromMeters: meters)
@@ -69,22 +73,27 @@ class HomePageViewController: UIViewController {
             self.weight = userWeight as? HKQuantitySample
             
             // The weight is formatted to the user's locale.
-            if let meters = self.height?.quantity.doubleValue(for: HKUnit.meter()) {
-                let formatHeight = LengthFormatter()
-                formatHeight.isForPersonHeightUse = true
-                weightString = formatHeight.string(fromMeters: meters)
+            if let kilograms = self.weight?.quantity.doubleValue(for: HKUnit.gramUnit(with: .kilo)) {
+                self.kilogramForBMI = kilograms
+                let formatWeight = MassFormatter()
+                formatWeight.isForPersonMassUse = true
+                weightString = formatWeight.string(fromKilograms : kilograms)
             }
             
             DispatchQueue.global(qos: .userInitiated).async{
                 DispatchQueue.main.async {
-                    self.weightLabel.text = weightString
+                    self.heightLabel.text = weightString
                 }
             }
         })
     }
     
     func setBMI(){
+        var bodyMassIndex: Double? {
+            return Double(kilogramForBMI!/(meterForBMI!*meterForBMI!))
+        }
         
+        self.bmiLabel.text = String(format:"%.2f", bodyMassIndex!)
     }
 
     override func viewDidLoad() {
