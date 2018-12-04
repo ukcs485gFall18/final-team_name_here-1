@@ -26,6 +26,7 @@ class WorkoutViewController: UIViewController, CLLocationManagerDelegate {
     var selectedMode = 0; // Records which button is clicked
     
     let healthManager:HealthKitManager = HealthKitManager()
+    private let workoutStorage = WorkoutStorage()
     
     var zeroTime = TimeInterval()
     var timer : Timer = Timer()
@@ -94,6 +95,7 @@ class WorkoutViewController: UIViewController, CLLocationManagerDelegate {
         let strMSX10 = String(format: "%02d", millisecsX10)
         
         time.text = "\(strMinutes):\(strSeconds):\(strMSX10)"
+        self.workoutStorage.totalTime += Double(minutes)
         
         if time.text == "60:00:00" {
             timer.invalidate()
@@ -115,6 +117,12 @@ class WorkoutViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func stopTimer(_ sender: AnyObject) {
         timer.invalidate()
         locationManager.stopUpdatingLocation()
+        saveDistance()
+    }
+    
+    func saveDistance(){
+        self.workoutStorage.currentDistance = distanceTraveled
+        self.workoutStorage.totalDistance += distanceTraveled
     }
     
     @IBAction func share(_ sender: AnyObject) {

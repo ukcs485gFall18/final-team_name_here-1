@@ -10,19 +10,20 @@ import UIKit
 import HealthKit
 
 class HomePageViewController: UIViewController {
-    @IBOutlet weak var totalExerciseTime: UILabel!
+    @IBOutlet weak var totalTimeLabel: UILabel!
     
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var bmiLabel: UILabel!
     
-    @IBOutlet weak var totalDistanceToday: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var energyLabel: UILabel!
     
-    @IBOutlet weak var totalDistance: UILabel!
-    @IBOutlet weak var totalEnergy: UILabel!
+    @IBOutlet weak var totalDistanceLabel: UILabel!
+    @IBOutlet weak var totalEnergyLabel: UILabel!
     
     let healthManager:HealthKitManager = HealthKitManager()
+    let workoutStorage = WorkoutStorage()
     var height: HKQuantitySample?
     var weight: HKQuantitySample?
     var meterForBMI: Double?
@@ -110,6 +111,11 @@ class HomePageViewController: UIViewController {
                 return
             }
             
+            self.workoutStorage.currentEnergyBurned = (userActiveEnergyBurned as! Double)
+            self.workoutStorage.totalEnergyBurned += (userActiveEnergyBurned as! Double)
+            
+            self.totalEnergyLabel.text = "\(String(self.workoutStorage.totalEnergyBurned)) cal"
+            
             var activeEnergyBurnedString = ""
             
             if (userAEBGoal != nil) {
@@ -123,6 +129,13 @@ class HomePageViewController: UIViewController {
             }
         })
     }
+    
+    func setDistanceAndTime(){
+        self.distanceLabel.text = "\(String(describing: self.workoutStorage.currentDistance))"
+        self.totalDistanceLabel.text = "\(self.workoutStorage.totalDistance)"
+        self.totalTimeLabel.text = "\(self.workoutStorage.totalTime)"
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,6 +143,7 @@ class HomePageViewController: UIViewController {
         setWeight()
         setBMI()
         setEnergy()
+        setDistanceAndTime()
         // Do any additional setup after loading the view.
     }
     
