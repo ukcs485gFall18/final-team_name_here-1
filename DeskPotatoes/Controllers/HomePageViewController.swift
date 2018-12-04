@@ -21,7 +21,6 @@ class HomePageViewController: UIViewController {
     
     @IBOutlet weak var totalDistance: UILabel!
     @IBOutlet weak var totalEnergy: UILabel!
-    @IBOutlet weak var totalEnergyIntake: UILabel!
     
     let healthManager:HealthKitManager = HealthKitManager()
     var height: HKQuantitySample?
