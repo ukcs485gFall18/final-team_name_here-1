@@ -56,7 +56,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpa-5b-GNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="930" y="-57"/>
+            <point key="canvasLocation" x="745" y="-143"/>
         </scene>
         <!--Workout-->
         <scene sceneID="7Yj-s2-87g">
@@ -298,7 +298,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yh3-pb-ESd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="151" y="-57"/>
+            <point key="canvasLocation" x="-31" y="-142"/>
         </scene>
         <!--Home-->
         <scene sceneID="RFs-9b-uwO">
@@ -379,7 +379,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOS-1m-DMq">
-                                <rect key="frame" x="97" y="246" width="17" height="22"/>
+                                <rect key="frame" x="97" y="246" width="82" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="highlightedColor"/>
@@ -445,7 +445,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gle-ek-VKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-594" y="-57"/>
+            <point key="canvasLocation" x="-826.39999999999998" y="-141.67916041979012"/>
         </scene>
         <!--Log-->
         <scene sceneID="e7O-2N-ZvK">
@@ -520,7 +520,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3K-kj-1SX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1402" y="-1004"/>
+            <point key="canvasLocation" x="-826" y="-1013"/>
         </scene>
         <!--SignUp-->
         <scene sceneID="Xzr-gb-hX0">
@@ -614,7 +614,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Duw-WJ-L6G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="150" y="678"/>
+            <point key="canvasLocation" x="-1463" y="-1013"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mWm-2r-0lU">
@@ -634,7 +634,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zfC-um-OsA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-593" y="-1013"/>
+            <point key="canvasLocation" x="-31" y="-1013"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -664,7 +664,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-594" y="1352"/>
+            <point key="canvasLocation" x="-826" y="-1697"/>
         </scene>
         <!--Medal Table View Controller-->
         <scene sceneID="ZlD-Se-PWa">
@@ -712,7 +712,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wOk-FT-n15" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="150" y="1352"/>
+            <point key="canvasLocation" x="-31" y="-1697"/>
         </scene>
     </scenes>
     <resources>

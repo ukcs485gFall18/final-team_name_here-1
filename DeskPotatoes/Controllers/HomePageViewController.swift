@@ -27,6 +27,19 @@ class HomePageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        healthManager.readData(dataType: HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!) { (sample, error) in
+            print("It worked")
+            let height:HKQuantitySample? = sample as? HKQuantitySample
+            if let meters = height?.quantity.doubleValue(for: HKUnit.meter()) {
+                let formatHeight = LengthFormatter()
+                formatHeight.isForPersonHeightUse = true
+                DispatchQueue.main.async{
+                    self.heightLabel.text = formatHeight.string(fromMeters: meters)
+                }
+                
+            }
+        }
 
         // Do any additional setup after loading the view.
     }
