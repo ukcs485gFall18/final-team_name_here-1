@@ -17,7 +17,7 @@ class HomePageViewController: UIViewController {
     @IBOutlet weak var bmiLabel: UILabel!
     
     @IBOutlet weak var totalDistanceToday: UILabel!
-    @IBOutlet weak var totalEnergyToday: UILabel!
+    @IBOutlet weak var energyLabel: UILabel!
     
     @IBOutlet weak var totalDistance: UILabel!
     @IBOutlet weak var totalEnergy: UILabel!
@@ -27,7 +27,7 @@ class HomePageViewController: UIViewController {
     var weight: HKQuantitySample?
     var meterForBMI: Double?
     var kilogramForBMI: Double?
-    
+
     
     func setHeight(){
         let heightSample = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)
@@ -94,12 +94,42 @@ class HomePageViewController: UIViewController {
         
         self.bmiLabel.text = String(format:"%.2f", bodyMassIndex!)
     }
+    
+    func setEnergy(){
+        //Refer from last project and adjusted by Siyuan Chen
+        /* @desc: Get data on Energy Burned Goal from HealthKit
+         * @author: Darren Powers
+         * Notes: based on code for setHeight below and includes information gathered from: https://crunchybagel.com/accessing-activity-rings-data-from-healthkit/
+         */
+        
+        // Call HealthKitManager's getSample() method to get active energy for today from HealthKit
+        self.healthManager.getEnergyBurned(completion: { (userActiveEnergyBurned, userAEBGoal, error) -> Void in
+            
+            if( error != nil) {
+                print("Error: \(String(describing: error?.localizedDescription))")
+                return
+            }
+            
+            var activeEnergyBurnedString = ""
+            
+            if (userAEBGoal != nil) {
+                activeEnergyBurnedString = "\(String(describing: userActiveEnergyBurned!)) cal"
+            }
+            
+            DispatchQueue.global(qos: .userInitiated).async{
+                DispatchQueue.main.async {
+                    self.energyLabel.text = activeEnergyBurnedString
+                }
+            }
+        })
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setHeight()
         setWeight()
         setBMI()
+        setEnergy()
         // Do any additional setup after loading the view.
     }
     

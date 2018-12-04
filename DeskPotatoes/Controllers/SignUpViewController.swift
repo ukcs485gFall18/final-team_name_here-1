@@ -16,8 +16,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var TextFieldPassword: UITextField!
 
     
-    let BASE_URL = "https://final-project-b62cd.firebaseio.com/"
-    // reference from: https://stackoverflow.com/questions/37330220/cannot-call-value-of-non-function-type-modulefirebase
+    // let BASE_URL = "https://final-project-b62cd.firebaseio.com/"
     var firebase = Database.database().reference()
     
     @IBAction func register(_ sender: AnyObject) {
