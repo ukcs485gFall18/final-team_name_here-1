@@ -20,7 +20,6 @@
 		BB146107218BA99F001D76B5 /* MedalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB146106218BA99F001D76B5 /* MedalTableViewController.swift */; };
 		FD718F092195191A005F50B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD718F082195191A005F50B3 /* GoogleService-Info.plist */; };
 		FDAACC782176789B0005AF23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAACC772176789B0005AF23 /* AppDelegate.swift */; };
-		FDAACC7A2176789B0005AF23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAACC792176789B0005AF23 /* ViewController.swift */; };
 		FDAACC7D2176789B0005AF23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDAACC7B2176789B0005AF23 /* Main.storyboard */; };
 		FDAACC822176789D0005AF23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDAACC802176789D0005AF23 /* LaunchScreen.storyboard */; };
 		FDDB7824217FB4B60048C95C /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDB7823217FB4B60048C95C /* HealthKitManager.swift */; };
@@ -44,7 +43,6 @@
 		FD718F082195191A005F50B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FDAACC742176789B0005AF23 /* DeskPotatoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeskPotatoes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAACC772176789B0005AF23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FDAACC792176789B0005AF23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FDAACC7C2176789B0005AF23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FDAACC812176789D0005AF23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FDAACC832176789D0005AF23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,7 +76,6 @@
 		FD718F0C2195F0F2005F50B3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FDAACC792176789B0005AF23 /* ViewController.swift */,
 				BB146106218BA99F001D76B5 /* MedalTableViewController.swift */,
 				BB146104218BA3EC001D76B5 /* MedalsTableViewCell.swift */,
 				7EDEF2A4218790CE0064A548 /* HomePageViewController.swift */,
@@ -297,7 +294,6 @@
 				7EF549E32179203B006BC81E /* ProfileViewController.swift in Sources */,
 				7E0C242821869F8C0090DF62 /* LogViewController.swift in Sources */,
 				BB146105218BA3EC001D76B5 /* MedalsTableViewCell.swift in Sources */,
-				FDAACC7A2176789B0005AF23 /* ViewController.swift in Sources */,
 				FDAACC782176789B0005AF23 /* AppDelegate.swift in Sources */,
 				FDDB7824217FB4B60048C95C /* HealthKitManager.swift in Sources */,
 				BB146107218BA99F001D76B5 /* MedalTableViewController.swift in Sources */,
