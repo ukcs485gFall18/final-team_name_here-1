@@ -32,6 +32,9 @@
                                 <rect key="frame" x="16" y="273" width="176" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Your Body measurements"/>
+                                <connections>
+                                    <segue destination="njO-x7-MHM" kind="show" id="nY2-yZ-pks"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0P-cy-Zg7" userLabel="Achievement">
                                 <rect key="frame" x="16" y="311" width="89" height="30"/>
