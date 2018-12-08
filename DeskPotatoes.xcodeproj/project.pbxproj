@@ -10,6 +10,7 @@
 		6C3F787E61CF9860D631DF54 /* Pods_DeskPotatoes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F622C5F11FCA6FCAFAF9165 /* Pods_DeskPotatoes.framework */; };
 		7E0C242821869F8C0090DF62 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C242721869F8C0090DF62 /* LogViewController.swift */; };
 		7E0C242C21869FAC0090DF62 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C242B21869FAC0090DF62 /* SignUpViewController.swift */; };
+		7E1A5B3A21BC798100227CE5 /* BodyMeasurementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1A5B3921BC798100227CE5 /* BodyMeasurementViewController.swift */; };
 		7E1D17B4217FBF9B00D3009C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E1D17B3217FBF9B00D3009C /* Assets.xcassets */; };
 		7E748D0621B634140069A48E /* WorkoutStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E748D0521B634140069A48E /* WorkoutStorage.swift */; };
 		7EDEF2A5218790CE0064A548 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDEF2A4218790CE0064A548 /* HomePageViewController.swift */; };
@@ -33,6 +34,7 @@
 		7CAC2B85883747859CDE61C0 /* Pods-DeskPotatoes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeskPotatoes.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeskPotatoes/Pods-DeskPotatoes.release.xcconfig"; sourceTree = "<group>"; };
 		7E0C242721869F8C0090DF62 /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		7E0C242B21869FAC0090DF62 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		7E1A5B3921BC798100227CE5 /* BodyMeasurementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyMeasurementViewController.swift; sourceTree = "<group>"; };
 		7E1D17B3217FBF9B00D3009C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E748D0521B634140069A48E /* WorkoutStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutStorage.swift; sourceTree = "<group>"; };
 		7EDEF2A4218790CE0064A548 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				7EF549E22179203B006BC81E /* ProfileViewController.swift */,
 				7E0C242721869F8C0090DF62 /* LogViewController.swift */,
 				7E0C242B21869FAC0090DF62 /* SignUpViewController.swift */,
+				7E1A5B3921BC798100227CE5 /* BodyMeasurementViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				7EF549DF21791F99006BC81E /* WorkoutViewController.swift in Sources */,
 				7EDEF2A5218790CE0064A548 /* HomePageViewController.swift in Sources */,
 				7E748D0621B634140069A48E /* WorkoutStorage.swift in Sources */,
+				7E1A5B3A21BC798100227CE5 /* BodyMeasurementViewController.swift in Sources */,
 				7E0C242C21869FAC0090DF62 /* SignUpViewController.swift in Sources */,
 				7EF549E32179203B006BC81E /* ProfileViewController.swift in Sources */,
 				7E0C242821869F8C0090DF62 /* LogViewController.swift in Sources */,
