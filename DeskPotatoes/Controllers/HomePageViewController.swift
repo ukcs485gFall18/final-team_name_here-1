@@ -10,90 +10,102 @@ import UIKit
 import HealthKit
 
 class HomePageViewController: UIViewController {
-    @IBOutlet weak var totalTimeLabel: UILabel!
+    @IBOutlet weak var totalExerciseTime: UILabel!
     
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var bmiLabel: UILabel!
     
-    @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var energyLabel: UILabel!
+    @IBOutlet weak var totalDistanceToday: UILabel!
+    @IBOutlet weak var totalEnergyToday: UILabel!
     
-    @IBOutlet weak var totalDistanceLabel: UILabel!
-    @IBOutlet weak var totalEnergyLabel: UILabel!
+    @IBOutlet weak var totalDistance: UILabel!
+    @IBOutlet weak var totalEnergy: UILabel!
     
     let healthManager:HealthKitManager = HealthKitManager()
     let workoutStorage = WorkoutStorage()
     var height: HKQuantitySample?
+    var heightM: Double = 0.0
     var weight: HKQuantitySample?
-    var meterForBMI: Double?
-    var kilogramForBMI: Double?
+    var weightKG: Double = 0.0
+    
+    //To handle asynchronous functions
+    let dispatchGroup = DispatchGroup()
+    
 
     
-    func setHeight(){
-        let heightSample = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)
-        
-        self.healthManager.readData(dataType: heightSample!, completion: { (userHeight, error) -> Void in
-            
-            if( error != nil ) {
-                print("Error: \(String(describing: error?.localizedDescription))")
-                return
+    func authorizeHomepageElements() {
+        let reader: Set = [HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height), HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)]
+        self.healthManager.authorizeHealthKit(share: nil, read: (reader as! Set<HKObjectType>)) { (auth, error) in
+            if ((error) != nil) {
+                print("unable to authorize: \(String(describing: error))")
+            } else {
+                print("healthkit authorized for homepage elements")
             }
+        }
+    }
+    
+    func setHeight(){
+        self.healthManager.readData(dataType: HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!) { (sample, error) in
             
-            var heightString = ""
-            self.height = userHeight as? HKQuantitySample
-            
-            // The height is formatted to the user's locale.
-            if let meters = self.height?.quantity.doubleValue(for: HKUnit.meter()) {
-                self.meterForBMI = meters
+            let height:HKQuantitySample? = sample as? HKQuantitySample
+            if let meters = height?.quantity.doubleValue(for: HKUnit.meter()) {
+                self.heightM = meters as Double
+                print("It worked: \(self.heightM)")
                 let formatHeight = LengthFormatter()
                 formatHeight.isForPersonHeightUse = true
-                heightString = formatHeight.string(fromMeters: meters)
-            }
-            
-            DispatchQueue.global(qos: .userInitiated).async{
-                DispatchQueue.main.async {
-                    self.heightLabel.text = heightString
+                DispatchQueue.main.async{
+                    self.heightLabel.text = formatHeight.string(fromMeters: meters)
+                    self.dispatchGroup.leave()
                 }
+                
             }
-        })
+        }
     }
     
     func setWeight(){
-        let weightSample = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)
-        
-        self.healthManager.readData(dataType: weightSample!, completion: { (userWeight, error) -> Void in
+        self.healthManager.readData(dataType: HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!) { (sample, error) in
             
-            if( error != nil ) {
-                print("Error: \(String(describing: error?.localizedDescription))")
-                return
-            }
-            
-            var weightString = ""
-            self.weight = userWeight as? HKQuantitySample
-            
-            // The weight is formatted to the user's locale.
-            if let kilograms = self.weight?.quantity.doubleValue(for: HKUnit.gramUnit(with: .kilo)) {
-                self.kilogramForBMI = kilograms
+            let weight:HKQuantitySample? = sample as? HKQuantitySample
+            if let kilos = weight?.quantity.doubleValue(for: HKUnit.gramUnit(with: .kilo)) {
                 let formatWeight = MassFormatter()
                 formatWeight.isForPersonMassUse = true
-                weightString = formatWeight.string(fromKilograms : kilograms)
-            }
-            
-            DispatchQueue.global(qos: .userInitiated).async{
-                DispatchQueue.main.async {
-                    self.heightLabel.text = weightString
+                DispatchQueue.main.async{
+                    self.weightLabel.text = formatWeight.string(fromKilograms: kilos)
+                    self.weightKG = kilos as Double
+                    print("It worked: \(self.weightKG)")
+                    self.dispatchGroup.leave()
                 }
+                
             }
-        })
+        }
     }
     
     func setBMI(){
-        var bodyMassIndex: Double? {
-            return Double(kilogramForBMI!/(meterForBMI!*meterForBMI!))
+        dispatchGroup.enter()
+        setHeight()
+        print("After Set Height: \(self.heightM)")
+        dispatchGroup.enter()
+        setWeight()
+        print("After Set Weight: \(self.weightKG)")
+        dispatchGroup.notify(queue: .main) {
+            let bodyMassIndex = self.healthManager.calculateBMI(height: self.heightM, weight: self.weightKG)
+            var rangeString: String
+            //Body Mass Index Ranges from Wikipedia using following source provided by article author: "BMI Classification". Global Database on Body Mass Index. World Health Organization. 2006. Archived from the original on April 18, 2009. Retrieved July 27, 2012"
+            if (bodyMassIndex < 18.5){
+                rangeString = "Underweight"
+            } else if (bodyMassIndex >= 18.5 && bodyMassIndex < 25.0){
+                rangeString = "Normal"
+            } else if (bodyMassIndex >= 25.0 && bodyMassIndex < 30.0) {
+                rangeString = "Overweight"
+            } else if (bodyMassIndex >= 30) {
+                rangeString = "Obese"
+            } else {
+                rangeString = ""
+            }
+            self.bmiLabel.text = (bodyMassIndex != 0.0) ? "\(String(format:"%.2f", bodyMassIndex )) [\(rangeString)]" : "N/A"
+            //self.bmiLabel.text = String(bodyMassIndex)
         }
-        
-        self.bmiLabel.text = String(format:"%.2f", bodyMassIndex!)
     }
     
     func setEnergy(){
@@ -114,7 +126,7 @@ class HomePageViewController: UIViewController {
             self.workoutStorage.currentEnergyBurned = (userActiveEnergyBurned as! Double)
             self.workoutStorage.totalEnergyBurned += (userActiveEnergyBurned as! Double)
             
-            self.totalEnergyLabel.text = "\(String(self.workoutStorage.totalEnergyBurned)) cal"
+            self.totalEnergy.text = "\(String(self.workoutStorage.totalEnergyBurned)) cal"
             
             var activeEnergyBurnedString = ""
             
@@ -124,26 +136,26 @@ class HomePageViewController: UIViewController {
             
             DispatchQueue.global(qos: .userInitiated).async{
                 DispatchQueue.main.async {
-                    self.energyLabel.text = activeEnergyBurnedString
+                    self.totalEnergyToday.text = activeEnergyBurnedString
                 }
             }
         })
     }
     
-    func setDistanceAndTime(){
+    /*func setDistanceAndTime(){
         self.distanceLabel.text = "\(String(describing: self.workoutStorage.currentDistance))"
         self.totalDistanceLabel.text = "\(self.workoutStorage.totalDistance)"
         self.totalTimeLabel.text = "\(self.workoutStorage.totalTime)"
-    }
+    }*/
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setHeight()
-        setWeight()
+        
+        authorizeHomepageElements()
         setBMI()
         setEnergy()
-        setDistanceAndTime()
+        //setDistanceAndTime()
         // Do any additional setup after loading the view.
     }
     

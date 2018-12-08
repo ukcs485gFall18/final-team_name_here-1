@@ -6,6 +6,8 @@
 //  Copyright © 2018 Darren Powers. All rights reserved.
 //
 
+// References Note: https://firebase.google.com/docs/ios/setup?authuser=1#frameworks used for instructions on setting up firebase using cocoa pods (DCP)
+
 import UIKit
 import Firebase
 

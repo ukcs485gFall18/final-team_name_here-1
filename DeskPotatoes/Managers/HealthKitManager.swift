@@ -193,4 +193,16 @@ class HealthKitManager {
         print("This Worked")
         
     }
+    
+    /* calculate BMI
+     * @description Uses height (in meters) and weight (in kg) to calculate BMI
+     * @author Darren Powers
+     */
+    func calculateBMI(height: Double, weight: Double) -> Double {
+        var bMI: Double = 0.0
+        if(height != 0.0){
+            bMI = weight/(height*height)
+        }
+        return bMI
+    }
 }
