@@ -7,16 +7,43 @@
 //
 
 import UIKit
+import Firebase
 
 class SignUpViewController: UIViewController {
+    @IBOutlet weak var TextFieldFirstName: UITextField!
+    @IBOutlet weak var TextFieldLastName: UITextField!
+    @IBOutlet weak var TextFieldEmail: UITextField!
+    @IBOutlet weak var TextFieldPassword: UITextField!
 
+    
+    // let BASE_URL = "https://final-project-b62cd.firebaseio.com/"
+    var firebase = Database.database().reference()
+    
+    @IBAction func register(_ sender: AnyObject) {
+        let email = TextFieldEmail.text
+        let password = TextFieldPassword.text
+        
+        Auth.auth().createUser(withEmail: email!, password: password!, completion: { (user, error) in
+            if error == nil {
+                //registration successful
+                print("nice job!")
+            }else{
+                //registration failure
+                print("failed registration")
+            }
+        })
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
-
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     /*
     // MARK: - Navigation
 
