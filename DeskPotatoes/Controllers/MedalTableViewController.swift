@@ -12,9 +12,31 @@ class MedalTableViewController: UITableViewController {
 
     
     
+    var connectWorkoutView: WorkoutViewController = WorkoutViewController()
+    var checkStatus: Int = 0
+    var medals: [Medal] = []
+    var med1: String = "Hello"
+    var med3: String = "Hello"
+    
+    class Medal {
+        var name: String
+        var unlocked: String
+        init(name: String, unlocked: String){
+            self.name = name
+            self.unlocked = unlocked
+        }
+    }
+    
+    @IBAction func returnButton(_ sender: Any) {
+        print("I have returned")
+        checkStatus = 2
+        med3 = "Unlocked"
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadMedals()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -23,7 +45,6 @@ class MedalTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -31,20 +52,29 @@ class MedalTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        return medals.count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MedalsTableViewCell", for: indexPath)
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cellIdentifier = "MedalsTableViewCell"
         
-        cell.textLabel?.text = "Section \(indexPath.section) Row \(indexPath.row)"
-
-        // Configure the cell...
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MedalsTableViewCell else {
+            fatalError("Error cell is not an instance of the view cell")
+        }
+        
+        let medal = medals[indexPath.row]
+        
+        //cell.textLabel?.text = "Section \(indexPath.section) Row \(indexPath.row)"
+        
+        cell.medal1.text = medal.name
+        cell.medal1des.text = medal.unlocked
+        
 
         return cell
-    }*/
+    }
     
 
     /*
@@ -92,10 +122,61 @@ class MedalTableViewController: UITableViewController {
     }
     */
 
-    private func loadMedals()
+    public func loadMedals()
     {
         
+        //print(connectWorkoutView.WALKING)
+        
+        print(checkStatus)
+        let medal1 = Medal(name: "Welcome", unlocked: "Unlocked")
+        //When the user opens the Medal page this will unlock
+        
+        let medal2 = Medal(name: "Walk a Mile in my Shoes", unlocked: "Locked")
+        //When the user walks a mile
+        
+        let medal3 = Medal(name: "Welcome Back", unlocked: "Locked")
+        //When the user opens the Medal page again (hits Return)
+        
+        let medal4 = Medal(name: "First Workout", unlocked: "Locked")
+        //When the user opens up the workout tab
+        
+        medals.append(medal1)
+        medals.append(medal2)
+        medals.append(medal3)
+        medals.append(medal4)
+        
+        med1 = medal1.unlocked
+        med3 = medal3.unlocked
+        
+        //checkStatus = hello(x: med1)
+        
+        if (checkStatus == 1)
+        {
+            medal2.unlocked = "Unlocked"
+        }
+        else if (checkStatus == 2)
+        {
+            medal3.unlocked = "Unlocked"
+        }
+        else
+        {
+            medal2.unlocked = "Locked"
+            medal3.unlocked = "Locked"
+        }
+    }
+    
+    public func hello(x: String) -> Int{
+        
+        print(med1)
+        
+        return 0
         
     }
     
+
+    
 }
+/* 1. Create a medal that unlocks when you use the return button
+ 2. Create a medal that unlocks when you hit the workout button
+ 3. Create a medal that unlocks when you run, walk, etc
+ 4. Create a medal that unlocks when you add a picture*/
