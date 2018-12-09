@@ -35,7 +35,7 @@ class HomePageViewController: UIViewController {
 
     
     func authorizeHomepageElements() {
-        let reader: Set = [HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height), HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)]
+        let reader: Set = [HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height), HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass), HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned), HKObjectType.activitySummaryType()]
         self.healthManager.authorizeHealthKit(share: nil, read: (reader as! Set<HKObjectType>)) { (auth, error) in
             if ((error) != nil) {
                 print("unable to authorize: \(String(describing: error))")
@@ -122,22 +122,20 @@ class HomePageViewController: UIViewController {
                 print("Error: \(String(describing: error?.localizedDescription))")
                 return
             }
-            
-            self.workoutStorage.currentEnergyBurned = (userActiveEnergyBurned as! Double)
-            self.workoutStorage.totalEnergyBurned += (userActiveEnergyBurned as! Double)
-            
-            self.totalEnergy.text = "\(String(self.workoutStorage.totalEnergyBurned)) cal"
-            
-            var activeEnergyBurnedString = ""
+            if (userActiveEnergyBurned != nil) {
+                self.workoutStorage.currentEnergyBurned = (userActiveEnergyBurned as! Double)
+                self.workoutStorage.totalEnergyBurned += (userActiveEnergyBurned as! Double)
+                
+                self.totalEnergy.text = "\(String(self.workoutStorage.totalEnergyBurned)) cal"
+            }
+            var activeEnergyBurnedString = "No Active Energy Burned"
             
             if (userAEBGoal != nil) {
                 activeEnergyBurnedString = "\(String(describing: userActiveEnergyBurned!)) cal"
             }
             
-            DispatchQueue.global(qos: .userInitiated).async{
-                DispatchQueue.main.async {
-                    self.totalEnergyToday.text = activeEnergyBurnedString
-                }
+            DispatchQueue.main.async {
+                self.totalEnergyToday.text = activeEnergyBurnedString
             }
         })
     }
