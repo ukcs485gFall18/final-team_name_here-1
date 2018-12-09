@@ -10,18 +10,17 @@ import UIKit
 import Firebase
 
 class SignUpViewController: UIViewController {
-    @IBOutlet weak var TextFieldFirstName: UITextField!
-    @IBOutlet weak var TextFieldLastName: UITextField!
-    @IBOutlet weak var TextFieldEmail: UITextField!
-    @IBOutlet weak var TextFieldPassword: UITextField!
+    @IBOutlet weak var firstName: UITextField!
+    @IBOutlet weak var lastName: UITextField!
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var password: UITextField!
 
-    
     // let BASE_URL = "https://final-project-b62cd.firebaseio.com/"
     var firebase = Database.database().reference()
     
     @IBAction func register(_ sender: AnyObject) {
-        let email = TextFieldEmail.text
-        let password = TextFieldPassword.text
+        let email = self.email.text
+        let password = self.password.text
         
         Auth.auth().createUser(withEmail: email!, password: password!, completion: { (user, error) in
             if error == nil {

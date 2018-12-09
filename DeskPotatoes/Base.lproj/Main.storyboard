@@ -479,11 +479,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jzr-EV-ACI">
-                                <rect key="frame" x="270" y="246" width="77" height="22"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nvi-iT-1in">
                                 <rect key="frame" x="70" y="284" width="225" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -509,6 +504,11 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOk-pC-Nql">
                                 <rect key="frame" x="228" y="393" width="17" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jzr-EV-ACI">
+                                <rect key="frame" x="270" y="245" width="77" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -643,7 +643,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="SignUp Here"/>
                                 <connections>
-                                    <segue destination="0Li-qG-69T" kind="show" id="Kuy-Zd-1ep"/>
+                                    <segue destination="0Li-qG-69T" kind="show" id="YhN-4O-bWg"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Waiting..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A82-LU-bUX">
@@ -765,7 +765,6 @@
                         <outlet property="firstName" destination="leP-mO-xog" id="1F9-wq-ZnA"/>
                         <outlet property="lastName" destination="htu-XS-Px4" id="Fa1-TY-K6K"/>
                         <outlet property="password" destination="6nm-IO-Mos" id="n1j-og-t0B"/>
-                        <outlet property="submitBTN" destination="T2c-sr-5JT" id="dVD-ME-Om7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Duw-WJ-L6G" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -868,6 +867,6 @@
         <image name="workout" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BRW-mK-Pxk"/>
+        <segue reference="cZi-1w-hsw"/>
     </inferredMetricsTieBreakers>
 </document>
