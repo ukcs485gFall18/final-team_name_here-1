@@ -10,11 +10,26 @@ import UIKit
 
 class MedalTableViewController: UITableViewController {
 
+    class Medal {
+        var name: String
+        var unlocked: String
+        init(name: String, unlocked: String){
+            self.name = name
+            self.unlocked = unlocked
+        }
+    }
     
+    var medals: [Medal] = []
+    
+    var try_variable = "Hey it works!"
+    
+    //var testThis: Bool = true
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadMedals()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -32,19 +47,29 @@ class MedalTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return medals.count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MedalsTableViewCell", for: indexPath)
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cellIdentifier = "MedalsTableViewCell"
         
-        cell.textLabel?.text = "Section \(indexPath.section) Row \(indexPath.row)"
-
-        // Configure the cell...
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MedalsTableViewCell else {
+            fatalError("Error cell is not an instance of the view cell")
+        }
+        
+        let medal = medals[indexPath.row]
+        
+        //cell.textLabel?.text = "Section \(indexPath.section) Row \(indexPath.row)"
+        
+        cell.medal1.text = medal.name
+        //cell.textLabel?.text = medal.name
+        cell.medal1des.text = medal.unlocked
+        
 
         return cell
-    }*/
+    }
     
 
     /*
@@ -94,7 +119,35 @@ class MedalTableViewController: UITableViewController {
 
     private func loadMedals()
     {
+        let medal1 = Medal(name: "Welcome", unlocked: "Locked")
+        //When the user opens the Medal page this will unlock
         
+        let medal2 = Medal(name: "Walk a Mile in my Shoes", unlocked: "Locked")
+        //When the user exercises for the first time
+        
+        let medal3 = Medal(name: "Welcome part 2", unlocked: "Locked")
+        //When the user opens the Medal page again
+        
+        medals.append(medal1)
+        medals.append(medal2)
+        medals.append(medal3)
+        
+        //testThis = medal1.unlocked
+        
+        medal1.unlocked = "Unlocked"
+        
+        
+        /*
+         * let unlock = [Bool]()
+         * unlock = medals.map()
+         * I tried to map all of the bool values in the array medals to a new array but was unable to
+         */
+        
+        
+        //print(medals.count)
+        //print("hello")
+        
+        //print(testThis)
         
     }
     
