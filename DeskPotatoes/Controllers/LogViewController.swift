@@ -26,7 +26,7 @@ class LogViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        TextFieldPassword.isSecureTextEntry = true;
         // Do any additional setup after loading the view.
     }
     
