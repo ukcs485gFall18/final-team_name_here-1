@@ -43,7 +43,7 @@ class SignUpViewController: UIViewController {
                                     return
                                 }
                                 print("\(email) created")
-                                self.navigationController!.popViewController(animated: true)
+//                                self.navigationController!.popViewController(animated: true)
                             // [END_EXCLUDE]
                             guard let user = authResult?.user else { return }
                         }
