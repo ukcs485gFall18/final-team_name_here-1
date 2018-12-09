@@ -19,18 +19,41 @@ class SignUpViewController: UIViewController {
     var firebase = Database.database().reference()
     
     @IBAction func register(_ sender: AnyObject) {
-        let email = self.email.text
-        let password = self.password.text
+//        let email = self.email.text
+//        let password = self.password.text
+//
+//        Auth.auth().createUser(withEmail: email!, password: password!, completion: { (user, error) in
+//            if error == nil {
+//                //registration successful
+//                print("nice job!")
+//            }else{
+//                //registration failure
+//                print("failed registration")
+//            }
+//        })
         
-        Auth.auth().createUser(withEmail: email!, password: password!, completion: { (user, error) in
-            if error == nil {
-                //registration successful
-                print("nice job!")
-            }else{
-                //registration failure
-                print("failed registration")
-            }
-        })
+        // Reference: https://github.com/firebase/quickstart-ios/blob/904fbc06bd69363782314a9d027f6300d054c1b3/authentication/AuthenticationExampleSwift/EmailViewController.swift#L113-L125
+        if let email = self.email.text {
+                if let password = self.password.text {
+                        // [START create_user]
+                        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+                            // [START_EXCLUDE]
+                                guard let email = authResult?.user.email, error == nil else {
+                                    print("Error with email")
+                                    return
+                                }
+                                print("\(email) created")
+                                self.navigationController!.popViewController(animated: true)
+                            // [END_EXCLUDE]
+                            guard let user = authResult?.user else { return }
+                        }
+                        // [END create_user]
+                }else {
+                    print("Password can't be empty")
+                }
+        } else {
+            print("email can't be empty")
+        }
     }
     
     override func viewDidLoad() {
