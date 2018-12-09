@@ -10,6 +10,14 @@ import UIKit
 
 class MedalTableViewController: UITableViewController {
 
+    
+    
+    var connectWorkoutView: WorkoutViewController = WorkoutViewController()
+    var checkStatus: Int = 0
+    var medals: [Medal] = []
+    var med1: String = "Hello"
+    var med3: String = "Hello"
+    
     class Medal {
         var name: String
         var unlocked: String
@@ -19,12 +27,11 @@ class MedalTableViewController: UITableViewController {
         }
     }
     
-    var medals: [Medal] = []
-    
-    var try_variable = "Hey it works!"
-    
-    //var testThis: Bool = true
-    
+    @IBAction func returnButton(_ sender: Any) {
+        print("I have returned")
+        checkStatus = 2
+        med3 = "Unlocked"
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +45,6 @@ class MedalTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         
@@ -46,7 +52,7 @@ class MedalTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
         return medals.count
     }
 
@@ -64,7 +70,6 @@ class MedalTableViewController: UITableViewController {
         //cell.textLabel?.text = "Section \(indexPath.section) Row \(indexPath.row)"
         
         cell.medal1.text = medal.name
-        //cell.textLabel?.text = medal.name
         cell.medal1des.text = medal.unlocked
         
 
@@ -117,38 +122,61 @@ class MedalTableViewController: UITableViewController {
     }
     */
 
-    private func loadMedals()
+    public func loadMedals()
     {
-        let medal1 = Medal(name: "Welcome", unlocked: "Locked")
+        
+        //print(connectWorkoutView.WALKING)
+        
+        print(checkStatus)
+        let medal1 = Medal(name: "Welcome", unlocked: "Unlocked")
         //When the user opens the Medal page this will unlock
         
         let medal2 = Medal(name: "Walk a Mile in my Shoes", unlocked: "Locked")
-        //When the user exercises for the first time
+        //When the user walks a mile
         
-        let medal3 = Medal(name: "Welcome part 2", unlocked: "Locked")
-        //When the user opens the Medal page again
+        let medal3 = Medal(name: "Welcome Back", unlocked: "Locked")
+        //When the user opens the Medal page again (hits Return)
+        
+        let medal4 = Medal(name: "First Workout", unlocked: "Locked")
+        //When the user opens up the workout tab
         
         medals.append(medal1)
         medals.append(medal2)
         medals.append(medal3)
+        medals.append(medal4)
         
-        //testThis = medal1.unlocked
+        med1 = medal1.unlocked
+        med3 = medal3.unlocked
         
-        medal1.unlocked = "Unlocked"
+        //checkStatus = hello(x: med1)
         
+        if (checkStatus == 1)
+        {
+            medal2.unlocked = "Unlocked"
+        }
+        else if (checkStatus == 2)
+        {
+            medal3.unlocked = "Unlocked"
+        }
+        else
+        {
+            medal2.unlocked = "Locked"
+            medal3.unlocked = "Locked"
+        }
+    }
+    
+    public func hello(x: String) -> Int{
         
-        /*
-         * let unlock = [Bool]()
-         * unlock = medals.map()
-         * I tried to map all of the bool values in the array medals to a new array but was unable to
-         */
+        print(med1)
         
-        
-        //print(medals.count)
-        //print("hello")
-        
-        //print(testThis)
+        return 0
         
     }
     
+
+    
 }
+/* 1. Create a medal that unlocks when you use the return button
+ 2. Create a medal that unlocks when you hit the workout button
+ 3. Create a medal that unlocks when you run, walk, etc
+ 4. Create a medal that unlocks when you add a picture*/

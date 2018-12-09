@@ -800,12 +800,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TVQ-HR-ANj">
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gJ9-kk-pGJ">
                             <rect key="frame" x="0.0" y="88" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Return"/>
                             <connections>
-                                <segue destination="zme-1Z-Euu" kind="show" id="SUA-w9-S48"/>
+                                <action selector="returnButton:" destination="cjs-yM-V6G" eventType="touchUpInside" id="2IG-jZ-krS"/>
+                                <segue destination="zme-1Z-Euu" kind="show" id="1bD-Dj-2Rp"/>
                             </connections>
                         </button>
                         <prototypes>
@@ -878,6 +879,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="BRW-mK-Pxk"/>
-        <segue reference="SUA-w9-S48"/>
+        <segue reference="1bD-Dj-2Rp"/>
     </inferredMetricsTieBreakers>
 </document>

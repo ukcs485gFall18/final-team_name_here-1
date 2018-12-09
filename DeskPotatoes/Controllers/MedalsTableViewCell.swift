@@ -18,8 +18,14 @@ class MedalsTableViewCell: UITableViewCell {
     
     var medalName: String = "Locked"
     
+    var medal1Unlock: String = "Locked"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        medal1Unlock = myCustomViewController.med1
+        
+        //myCustomViewController.med1
         
         /*if myCustomViewController.testThis == true {
             print("testThis var worked!")
