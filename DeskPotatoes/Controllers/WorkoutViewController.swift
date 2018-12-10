@@ -129,7 +129,7 @@ class WorkoutViewController: UIViewController, CLLocationManagerDelegate {
         switch selectedMode {
         case WALKING:
             healthManager.shareData(dataType: HKQuantityTypeIdentifier.distanceWalkingRunning, value: distanceTraveled, date: NSDate()) { (sample, error) in
-                print("It worked")
+                print("Walking worked")
                 }
         case RUNNING:
             healthManager.shareData(dataType: HKQuantityTypeIdentifier.distanceWalkingRunning, value: distanceTraveled, date: NSDate()) { (sample, error) in
