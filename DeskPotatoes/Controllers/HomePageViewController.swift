@@ -6,6 +6,12 @@
 //  Copyright © 2018 Darren Powers. All rights reserved.
 //
 
+/* Some of the formatting etc. should be offloaded into a model rather than being
+ * handled here in the the controller.
+ * Also, this should be the page where a user can access their community profile
+ * and options.
+ */
+
 import UIKit
 import HealthKit
 
@@ -22,7 +28,16 @@ class HomePageViewController: UIViewController {
     @IBOutlet weak var totalDistance: UILabel!
     @IBOutlet weak var totalEnergy: UILabel!
     
+    //profile button calls profile view as modal
+    
+    //need to add image to logout button
+    @IBAction func logOut(_ sender: UIButton) {
+        // Work to log out from the firebase needs to go here.
+        // After logged out, should segue back to login page.
+    }
+    
     let healthManager:HealthKitManager = HealthKitManager()
+    let healthModel: HealthModel = HealthModel()
     let workoutStorage = WorkoutStorage()
     var height: HKQuantitySample?
     var heightM: Double = 0.0
@@ -34,16 +49,7 @@ class HomePageViewController: UIViewController {
     
 
     
-    func authorizeHomepageElements() {
-        let reader: Set = [HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height), HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass), HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned), HKObjectType.activitySummaryType()]
-        self.healthManager.authorizeHealthKit(share: nil, read: (reader as! Set<HKObjectType>)) { (auth, error) in
-            if ((error) != nil) {
-                print("unable to authorize: \(String(describing: error))")
-            } else {
-                print("healthkit authorized for homepage elements")
-            }
-        }
-    }
+    
     
     func setHeight(){
         self.healthManager.readData(dataType: HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!) { (sample, error) in
@@ -150,7 +156,7 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        authorizeHomepageElements()
+        self.healthModel.authorizeHomepageElements()
         setBMI()
         setEnergy()
         //setDistanceAndTime()
@@ -161,16 +167,5 @@ class HomePageViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

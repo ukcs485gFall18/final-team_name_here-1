@@ -10,6 +10,9 @@ import UIKit
 
 class MedalTableViewController: UITableViewController {
 
+    @IBAction func Dismiss(_ sender: UIButton) {
+        dismiss(animated:true, completion: nil)
+    }
     
     
     var connectWorkoutView: WorkoutViewController = WorkoutViewController()

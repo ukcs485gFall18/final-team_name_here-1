@@ -6,6 +6,13 @@
 //  Copyright © 2018 Darren Powers. All rights reserved.
 //
 
+/* This view controller should access the user's community information from the database,
+ * and allow them to post a 'moment' that they can access.
+ * profile information should be accessable/editable from the 'home' page using
+ * 'HomePageViewController.swift'
+ * -Darren
+ */
+
 import UIKit
 
 class CommunityViewController: UIViewController {
@@ -15,16 +22,5 @@ class CommunityViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -2,7 +2,7 @@
 //  ProfileViewController.swift
 //  DeskPotatoes
 //
-//  Created by Siyuan Chen on 10/18/18.
+//  Created by Darren Powers on 10/12/2018.
 //  Copyright © 2018 Darren Powers. All rights reserved.
 //
 
@@ -10,6 +10,9 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBAction func Dismiss(_ sender: UIButton) {
+        dismiss(animated:true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
