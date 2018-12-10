@@ -61,21 +61,29 @@ class HealthKitManager {
         switch dataType {
         case .distanceWalkingRunning:
             quantity = HKQuantity(unit: HKUnit.mile(), doubleValue: value)
+        case .distanceCycling:
+            quantity = HKQuantity(unit: HKUnit.mile(), doubleValue: value)
         default:
             print("shareData error")
         }
         
-        //set Quantity Sample
-        let sample = HKQuantitySample(type: quantityType!, quantity: quantity!, start: date as Date, end: date as Date)
+        if (quantity != nil) {
+            //set Quantity Sample
+            let sample = HKQuantitySample(type: quantityType!, quantity: quantity!, start: date as Date, end: date as Date)
+            
+            // Save Quantity Sample to the HealthKit Store
+            healthKitStore.save(sample, withCompletion: { (success, error) -> Void in
+                if( error != nil ) {
+                    print(error!)
+                } else {
+                    print("The sample has been recorded! Better go check!")
+                }
+            })
+        } else {
+            print("Workout type error")
+        }
         
-        // Save Quantity Sample to the HealthKit Store
-        healthKitStore.save(sample, withCompletion: { (success, error) -> Void in
-            if( error != nil ) {
-                print(error!)
-            } else {
-                print("The sample has been recorded! Better go check!")
-            }
-        })
+        
     }
     
     func readData(dataType: HKObjectType, completion:((HKObject?, NSError?) -> Void)!) {
