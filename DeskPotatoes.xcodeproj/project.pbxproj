@@ -19,6 +19,7 @@
 		BB146107218BA99F001D76B5 /* MedalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB146106218BA99F001D76B5 /* MedalTableViewController.swift */; };
 		FD5F247021BEBF4400063AF9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F246F21BEBF4400063AF9 /* ProfileViewController.swift */; };
 		FD5F247521BEC32800063AF9 /* HealthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F247421BEC32800063AF9 /* HealthModel.swift */; };
+		FD5F247721BEE2D700063AF9 /* FirebaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F247621BEE2D700063AF9 /* FirebaseModel.swift */; };
 		FD718F092195191A005F50B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD718F082195191A005F50B3 /* GoogleService-Info.plist */; };
 		FDAACC782176789B0005AF23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAACC772176789B0005AF23 /* AppDelegate.swift */; };
 		FDAACC7D2176789B0005AF23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDAACC7B2176789B0005AF23 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		BB146106218BA99F001D76B5 /* MedalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedalTableViewController.swift; sourceTree = "<group>"; };
 		FD5F246F21BEBF4400063AF9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FD5F247421BEC32800063AF9 /* HealthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthModel.swift; sourceTree = "<group>"; };
+		FD5F247621BEE2D700063AF9 /* FirebaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModel.swift; sourceTree = "<group>"; };
 		FD718F082195191A005F50B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FDAACC742176789B0005AF23 /* DeskPotatoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeskPotatoes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAACC772176789B0005AF23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				FD5F247421BEC32800063AF9 /* HealthModel.swift */,
+				FD5F247621BEE2D700063AF9 /* FirebaseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				FDAACC782176789B0005AF23 /* AppDelegate.swift in Sources */,
 				FDDB7824217FB4B60048C95C /* HealthKitManager.swift in Sources */,
 				BB146107218BA99F001D76B5 /* MedalTableViewController.swift in Sources */,
+				FD5F247721BEE2D700063AF9 /* FirebaseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

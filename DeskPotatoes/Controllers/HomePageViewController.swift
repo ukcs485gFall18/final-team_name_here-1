@@ -14,6 +14,7 @@
 
 import UIKit
 import HealthKit
+import Firebase
 
 class HomePageViewController: UIViewController {
     @IBOutlet weak var totalExerciseTime: UILabel!
@@ -28,12 +29,16 @@ class HomePageViewController: UIViewController {
     @IBOutlet weak var totalDistance: UILabel!
     @IBOutlet weak var totalEnergy: UILabel!
     
+
     //profile button calls profile view as modal
     
     //need to add image to logout button
     @IBAction func logOut(_ sender: UIButton) {
         // Work to log out from the firebase needs to go here.
         // After logged out, should segue back to login page.
+        try! Auth.auth().signOut()
+        print("loggedout")
+        self.performSegue(withIdentifier: "logoutSegue", sender: self)
     }
     
     let healthManager:HealthKitManager = HealthKitManager()

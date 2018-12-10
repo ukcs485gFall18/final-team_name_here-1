@@ -412,6 +412,7 @@
                         <outlet property="totalEnergyToday" destination="JOk-pC-Nql" id="Ufg-aV-BOY"/>
                         <outlet property="totalExerciseTime" destination="vxs-DM-q2G" id="zDu-H5-ouq"/>
                         <outlet property="weightLabel" destination="Jzr-EV-ACI" id="maE-Go-0mY"/>
+                        <segue destination="X64-1A-6hi" kind="show" identifier="logoutSegue" id="Yy9-0n-uEY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gle-ek-VKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -466,7 +467,6 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="login:" destination="X64-1A-6hi" eventType="touchUpInside" id="aLe-xl-ZN0"/>
-                                    <segue destination="fdi-yj-xJf" kind="show" id="cZi-1w-hsw"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not a member?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUa-5T-fk7">
@@ -486,7 +486,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="SignUp Here"/>
                                 <connections>
-                                    <segue destination="0Li-qG-69T" kind="show" id="YhN-4O-bWg"/>
+                                    <segue destination="0Li-qG-69T" kind="presentation" id="YhN-4O-bWg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -519,11 +519,12 @@
                         <outlet property="LabelStatus" destination="A82-LU-bUX" id="tOo-Kd-efI"/>
                         <outlet property="TextFieldPassword" destination="FIo-8R-e3S" id="mLK-1U-1EN"/>
                         <outlet property="TextFieldUsername" destination="Nlt-6U-CfH" id="e1g-p8-Ifa"/>
+                        <segue destination="fdi-yj-xJf" kind="show" identifier="loginSegue" id="fHf-qd-B5b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K3K-kj-1SX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1282.5" y="-1013.0281690140845"/>
+            <point key="canvasLocation" x="-1215" y="-1024"/>
         </scene>
         <!--SignUp-->
         <scene sceneID="Xzr-gb-hX0">
@@ -598,12 +599,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your information below to create a new account." lineBreakMode="tailTruncation" numberOfLines="4" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e64-j7-YgY">
-                                <rect key="frame" x="16" y="81" width="288" height="97"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2c-sr-5JT" userLabel="Submit Button">
                                 <rect key="frame" x="114" y="370" width="92" height="48"/>
                                 <constraints>
@@ -613,7 +608,20 @@
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="register:" destination="0Li-qG-69T" eventType="touchUpInside" id="2td-Dv-OGR"/>
-                                    <segue destination="fdi-yj-xJf" kind="show" id="BRW-mK-Pxk"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your information below to create a new account." lineBreakMode="tailTruncation" numberOfLines="4" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e64-j7-YgY">
+                                <rect key="frame" x="16" y="81" width="288" height="97"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5n-KF-oDZ">
+                                <rect key="frame" x="136" y="435" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancel:" destination="0Li-qG-69T" eventType="touchUpInside" id="WJ8-Jr-pnf"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -755,7 +763,4 @@
         <image name="walking" width="48" height="48"/>
         <image name="workout" width="32" height="32"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="cZi-1w-hsw"/>
-    </inferredMetricsTieBreakers>
 </document>

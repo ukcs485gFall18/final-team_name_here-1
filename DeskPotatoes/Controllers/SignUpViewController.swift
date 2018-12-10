@@ -18,6 +18,9 @@ class SignUpViewController: UIViewController {
     // let BASE_URL = "https://final-project-b62cd.firebaseio.com/"
     var firebase = Database.database().reference()
     
+    @IBAction func cancel(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBAction func register(_ sender: AnyObject) {
 //        let email = self.email.text
 //        let password = self.password.text

@@ -17,7 +17,7 @@ class LogViewController: UIViewController {
     @IBAction func login(_ sender: Any) {
         if let email = self.TextFieldUsername.text, let password = self.TextFieldPassword.text{
             Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-                // ...
+                self.performSegue(withIdentifier: "loginSegue", sender: self)
             }
         } else {
             LabelStatus.text = "email/password can't be empty"
