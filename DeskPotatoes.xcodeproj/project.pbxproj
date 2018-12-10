@@ -10,15 +10,15 @@
 		6C3F787E61CF9860D631DF54 /* Pods_DeskPotatoes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F622C5F11FCA6FCAFAF9165 /* Pods_DeskPotatoes.framework */; };
 		7E0C242821869F8C0090DF62 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C242721869F8C0090DF62 /* LogViewController.swift */; };
 		7E0C242C21869FAC0090DF62 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C242B21869FAC0090DF62 /* SignUpViewController.swift */; };
-		7E1A5B3A21BC798100227CE5 /* BodyMeasurementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1A5B3921BC798100227CE5 /* BodyMeasurementViewController.swift */; };
 		7E1D17B4217FBF9B00D3009C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E1D17B3217FBF9B00D3009C /* Assets.xcassets */; };
 		7E748D0621B634140069A48E /* WorkoutStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E748D0521B634140069A48E /* WorkoutStorage.swift */; };
 		7EDEF2A5218790CE0064A548 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDEF2A4218790CE0064A548 /* HomePageViewController.swift */; };
 		7EF549DF21791F99006BC81E /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF549DE21791F99006BC81E /* WorkoutViewController.swift */; };
 		7EF549E121792023006BC81E /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF549E021792023006BC81E /* CommunityViewController.swift */; };
-		7EF549E32179203B006BC81E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF549E22179203B006BC81E /* ProfileViewController.swift */; };
 		BB146105218BA3EC001D76B5 /* MedalsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB146104218BA3EC001D76B5 /* MedalsTableViewCell.swift */; };
 		BB146107218BA99F001D76B5 /* MedalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB146106218BA99F001D76B5 /* MedalTableViewController.swift */; };
+		FD5F247021BEBF4400063AF9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F246F21BEBF4400063AF9 /* ProfileViewController.swift */; };
+		FD5F247521BEC32800063AF9 /* HealthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F247421BEC32800063AF9 /* HealthModel.swift */; };
 		FD718F092195191A005F50B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD718F082195191A005F50B3 /* GoogleService-Info.plist */; };
 		FDAACC782176789B0005AF23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAACC772176789B0005AF23 /* AppDelegate.swift */; };
 		FDAACC7D2176789B0005AF23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDAACC7B2176789B0005AF23 /* Main.storyboard */; };
@@ -33,15 +33,15 @@
 		7CAC2B85883747859CDE61C0 /* Pods-DeskPotatoes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeskPotatoes.release.xcconfig"; path = "Pods/Target Support Files/Pods-DeskPotatoes/Pods-DeskPotatoes.release.xcconfig"; sourceTree = "<group>"; };
 		7E0C242721869F8C0090DF62 /* LogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		7E0C242B21869FAC0090DF62 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		7E1A5B3921BC798100227CE5 /* BodyMeasurementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyMeasurementViewController.swift; sourceTree = "<group>"; };
 		7E1D17B3217FBF9B00D3009C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E748D0521B634140069A48E /* WorkoutStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutStorage.swift; sourceTree = "<group>"; };
 		7EDEF2A4218790CE0064A548 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		7EF549DE21791F99006BC81E /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		7EF549E021792023006BC81E /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
-		7EF549E22179203B006BC81E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		BB146104218BA3EC001D76B5 /* MedalsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedalsTableViewCell.swift; sourceTree = "<group>"; };
 		BB146106218BA99F001D76B5 /* MedalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedalTableViewController.swift; sourceTree = "<group>"; };
+		FD5F246F21BEBF4400063AF9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FD5F247421BEC32800063AF9 /* HealthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthModel.swift; sourceTree = "<group>"; };
 		FD718F082195191A005F50B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FDAACC742176789B0005AF23 /* DeskPotatoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeskPotatoes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDAACC772176789B0005AF23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +75,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FD5F247121BEC28400063AF9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FD5F247421BEC32800063AF9 /* HealthModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		FD718F0C2195F0F2005F50B3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,10 +91,9 @@
 				7EDEF2A4218790CE0064A548 /* HomePageViewController.swift */,
 				7EF549DE21791F99006BC81E /* WorkoutViewController.swift */,
 				7EF549E021792023006BC81E /* CommunityViewController.swift */,
-				7EF549E22179203B006BC81E /* ProfileViewController.swift */,
 				7E0C242721869F8C0090DF62 /* LogViewController.swift */,
 				7E0C242B21869FAC0090DF62 /* SignUpViewController.swift */,
-				7E1A5B3921BC798100227CE5 /* BodyMeasurementViewController.swift */,
+				FD5F246F21BEBF4400063AF9 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -112,6 +119,7 @@
 		FDAACC762176789B0005AF23 /* DeskPotatoes */ = {
 			isa = PBXGroup;
 			children = (
+				FD5F247121BEC28400063AF9 /* Models */,
 				FD718F0C2195F0F2005F50B3 /* Controllers */,
 				FDDB7825217FB4E00048C95C /* DeskPotatoes.entitlements */,
 				FDDB7822217FB4970048C95C /* Managers */,
@@ -293,10 +301,10 @@
 				7EF549DF21791F99006BC81E /* WorkoutViewController.swift in Sources */,
 				7EDEF2A5218790CE0064A548 /* HomePageViewController.swift in Sources */,
 				7E748D0621B634140069A48E /* WorkoutStorage.swift in Sources */,
-				7E1A5B3A21BC798100227CE5 /* BodyMeasurementViewController.swift in Sources */,
 				7E0C242C21869FAC0090DF62 /* SignUpViewController.swift in Sources */,
-				7EF549E32179203B006BC81E /* ProfileViewController.swift in Sources */,
 				7E0C242821869F8C0090DF62 /* LogViewController.swift in Sources */,
+				FD5F247021BEBF4400063AF9 /* ProfileViewController.swift in Sources */,
+				FD5F247521BEC32800063AF9 /* HealthModel.swift in Sources */,
 				BB146105218BA3EC001D76B5 /* MedalsTableViewCell.swift in Sources */,
 				FDAACC782176789B0005AF23 /* AppDelegate.swift in Sources */,
 				FDDB7824217FB4B60048C95C /* HealthKitManager.swift in Sources */,
