@@ -31,21 +31,29 @@ class FirebaseModel {
             self.ref?.child("workouts").child((Auth.auth().currentUser?.uid)!).child(formatter.string(from: Date())).setValue(workout)
         }
     }
-    func readWorkouts(uid: String) -> [[String: Any]] {
+    func readWorkouts(uid: String, completion: @escaping ([[String:Any]])->Void)  {
         var workouts: [[String:Any]] = []
-        
-        ref!.child("workouts").child((Auth.auth().currentUser?.uid)!).observe(.value) { (datasnapshot) in
-            guard let workoutsnapshot = datasnapshot.children.allObjects as? [DataSnapshot] else {return}
-            for workout in workoutsnapshot {
-                print(workout)
-                let newWorkout:[String:Any] = [
-                    "workoutType": workout.childSnapshot(forPath: "workoutType").value as! String,
-                    "distance": workout.childSnapshot(forPath:"distance").value as! Double,
-                    "time": workout.childSnapshot(forPath:"time").value as! String
-                ]
-                workouts.append(newWorkout)
+        let group = DispatchGroup()
+        group.enter()
+        DispatchQueue.global(qos: .default).async {
+            self.ref!.child("workouts").child((Auth.auth().currentUser?.uid)!).observe(.value) { (datasnapshot) in
+                guard let workoutsnapshot = datasnapshot.children.allObjects as? [DataSnapshot] else {return}
+                for workout in workoutsnapshot {
+                    //print(workout)
+                    let newWorkout:[String:Any] = [
+                        "workoutType": workout.childSnapshot(forPath: "workoutType").value as! String,
+                        "distance": workout.childSnapshot(forPath:"distance").value as! Double,
+                        "time": workout.childSnapshot(forPath:"time").value as! String
+                    ]
+                    workouts.append(newWorkout)
+                }
+                group.leave()
             }
+            group.notify(queue: .main) {
+                completion(workouts)
+            }
+            
         }
-        return workouts
+        
     }
 }
