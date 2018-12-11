@@ -50,19 +50,19 @@ class SignUpViewController: UIViewController {
                             let newUser:[String: AnyObject] = [
                                 "uid": Auth.auth().currentUser?.uid as AnyObject,
                                 "email": self.email.text! as AnyObject,
-                                "password": self.password.text! as AnyObject,
                                 "totalMinute" : 0 as AnyObject,
                                 "lastDistance" : 0 as AnyObject,
                                 "totalDistance" : 0 as AnyObject,
                                 "lastEnergyBurned" : 0 as AnyObject,
                                 "totalEnergyBurned" : 0 as AnyObject
                             ]
-                            if (Auth.auth().currentUser?.uid != nil){                            self.ref?.child("users").child((Auth.auth().currentUser?.uid)!).setValue(newUser)
+                            if (Auth.auth().currentUser?.uid != nil){
+                                self.ref?.child("users").child((Auth.auth().currentUser?.uid)!).setValue(newUser)
                             }
                             print("\(email) created")
-//                          self.navigationController!.popViewController(animated: true)
+                            // self.navigationController!.popViewController(animated: true)
                             // [END_EXCLUDE]
-                            guard let user = authResult?.user else { return }
+                            guard (authResult?.user) != nil else { return }
                         }
                         // [END create_user]
                 }else {

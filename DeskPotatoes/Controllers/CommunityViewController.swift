@@ -14,12 +14,15 @@
  */
 
 import UIKit
+import Firebase
 
 class CommunityViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //Debugging
+        let fbmod = FirebaseModel()
+        fbmod.readWorkouts(uid: Auth.auth().currentUser?.uid ?? "unauthorized")
         // Do any additional setup after loading the view.
     }
 
