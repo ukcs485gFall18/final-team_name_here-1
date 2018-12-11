@@ -52,10 +52,6 @@ class HomePageViewController: UIViewController {
     //To handle asynchronous functions
     let dispatchGroup = DispatchGroup()
     
-
-    
-    
-    
     func setHeight(){
         self.healthManager.readData(dataType: HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!) { (sample, error) in
             

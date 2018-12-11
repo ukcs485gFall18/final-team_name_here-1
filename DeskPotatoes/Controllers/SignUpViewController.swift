@@ -16,12 +16,13 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
 
     // let BASE_URL = "https://final-project-b62cd.firebaseio.com/"
-    var firebase = Database.database().reference()
-    
+    var ref : DatabaseReference?
+
     @IBAction func cancel(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
     @IBAction func register(_ sender: AnyObject) {
+    ref = Database.database().reference()
 //        let email = self.email.text
 //        let password = self.password.text
 //
@@ -41,14 +42,27 @@ class SignUpViewController: UIViewController {
                         // [START create_user]
                         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
                             // [START_EXCLUDE]
-                                guard let email = authResult?.user.email, error == nil else {
-                                    print("Error with email")
-                                    return
-                                }
-                                print("\(email) created")
-//                                self.navigationController!.popViewController(animated: true)
+                            guard let email = authResult?.user.email, error == nil else {
+                                print("Error with email")
+                                return
+                            }
+                            print(Auth.auth().currentUser?.uid as Any)
+                            let newUser:[String: AnyObject] = [
+                                "uid": Auth.auth().currentUser?.uid as AnyObject,
+                                "email": self.email.text! as AnyObject,
+                                "totalMinute" : 0 as AnyObject,
+                                "lastDistance" : 0 as AnyObject,
+                                "totalDistance" : 0 as AnyObject,
+                                "lastEnergyBurned" : 0 as AnyObject,
+                                "totalEnergyBurned" : 0 as AnyObject
+                            ]
+                            if (Auth.auth().currentUser?.uid != nil){
+                                self.ref?.child("users").child((Auth.auth().currentUser?.uid)!).setValue(newUser)
+                            }
+                            print("\(email) created")
+                            // self.navigationController!.popViewController(animated: true)
                             // [END_EXCLUDE]
-                            guard let user = authResult?.user else { return }
+                            guard (authResult?.user) != nil else { return }
                         }
                         // [END create_user]
                 }else {

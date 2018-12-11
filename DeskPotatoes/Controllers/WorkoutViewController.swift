@@ -37,6 +37,9 @@ class WorkoutViewController: UIViewController, CLLocationManagerDelegate {
     var lastLocation: CLLocation!
     var distanceTraveled = 0.0
     
+    // To write to firebase (Darren)
+    let firebaseMod = FirebaseModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -129,20 +132,24 @@ class WorkoutViewController: UIViewController, CLLocationManagerDelegate {
         switch selectedMode {
         case WALKING:
             healthManager.shareData(dataType: HKQuantityTypeIdentifier.distanceWalkingRunning, value: distanceTraveled, date: NSDate()) { (sample, error) in
-                print("It worked")
+                print("Walking worked")
                 }
+            firebaseMod.postWorkout(workoutType: "Walking", value: distanceTraveled)
         case RUNNING:
             healthManager.shareData(dataType: HKQuantityTypeIdentifier.distanceWalkingRunning, value: distanceTraveled, date: NSDate()) { (sample, error) in
                 print("Running Worked")
             }
+            firebaseMod.postWorkout(workoutType: "Running", value: distanceTraveled)
         case RIDING:
             healthManager.shareData(dataType: HKQuantityTypeIdentifier.distanceCycling, value: distanceTraveled, date: NSDate()) { (sample, error) in
                 print("riding worked")
             }
+            firebaseMod.postWorkout(workoutType: "Riding", value: distanceTraveled)
         default:
             healthManager.shareData(dataType: HKQuantityTypeIdentifier.distanceWalkingRunning, value: distanceTraveled, date: NSDate()) { (sample, error) in
                 print("DEFAULT")
             }
+            firebaseMod.postWorkout(workoutType: "unknown", value: distanceTraveled)
         }
     }
     
