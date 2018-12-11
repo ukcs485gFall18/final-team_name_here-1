@@ -18,12 +18,50 @@ import Firebase
 
 class CommunityViewController: UIViewController {
 
+    @IBOutlet weak var workoutsTable: UITableView!
+    var workouts: [[String:Any]] = []
+    var firebaseModel: FirebaseModel = FirebaseModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Debugging
-        let fbmod = FirebaseModel()
-        fbmod.readWorkouts(uid: Auth.auth().currentUser?.uid ?? "unauthorized")
+        workoutsTable.delegate = self
+        workoutsTable.dataSource = self
+        // get all of the logged in user's workouts
+        firebaseModel.readWorkouts(uid: (Auth.auth().currentUser?.uid)!) {
+            work in
+            self.workouts = work
+            self.workoutsTable.reloadData()
+        }
+        
         // Do any additional setup after loading the view.
     }
+    
+    
+}
 
+extension CommunityViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSectionsInTable(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return workouts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellWorkout: WorkoutTableViewCell? = tableView.dequeueReusableCell(withIdentifier: "workoutMoment", for: indexPath) as? WorkoutTableViewCell
+        if let cell = cellWorkout {
+            
+            cell.typeLabel?.text = workouts[indexPath.row]["workoutType"] as? String
+            cell.dateLabel?.text = workouts[indexPath.row]["time"] as? String
+            cell.valueLabel?.text = workouts[indexPath.row]["distance"] as? String
+            
+            return cell
+        }
+        
+        return cellWorkout!
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80.0
+    }
 }
