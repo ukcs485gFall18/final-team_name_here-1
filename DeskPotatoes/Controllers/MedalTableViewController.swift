@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MedalTableViewController: UITableViewController {
 
@@ -19,7 +20,12 @@ class MedalTableViewController: UITableViewController {
     var checkStatus: Int = 0
     var medals: [Medal] = []
     var med1: String = "Hello"
-    var med3: String = "Hello"
+    var med3: String = " "
+    
+    var refMedals: DatabaseReference! = Database.database().reference()
+    var medalHandler: DatabaseHandle!
+    //refMedals = Database.database().reference()
+    private var medalStorage = Storage()
     
     class Medal {
         var name: String
@@ -41,6 +47,18 @@ class MedalTableViewController: UITableViewController {
         
         loadMedals()
 
+        
+        /*refMedals.child("Medal").childByAutoId().setValue("Unlocked")
+        
+        medalHandler = refMedals.child("Medal").observe(.childAdded, with: {(data) in
+            let name : String = (data.value as? String)!
+            debugPrint(name)
+        })
+        
+        medalHandler = refMedals.child("Medal").observe(.childAdded, with: {(data) in
+            let name = self.medals
+            debugPrint(name)
+        })*/
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -149,10 +167,13 @@ class MedalTableViewController: UITableViewController {
         medals.append(medal4)
         
         med1 = medal1.unlocked
-        med3 = medal3.unlocked
+        //med3 = medal3.unlocked
+        
+        medal3.unlocked = med3
         
         //checkStatus = hello(x: med1)
         
+        //checkStatus = 2
         if (checkStatus == 1)
         {
             medal2.unlocked = "Unlocked"
@@ -161,16 +182,25 @@ class MedalTableViewController: UITableViewController {
         {
             medal3.unlocked = "Unlocked"
         }
-        else
-        {
-            medal2.unlocked = "Locked"
-            medal3.unlocked = "Locked"
-        }
+        
+        
+        //Save the medal values
+        refMedals.child(medal1.name).childByAutoId().setValue(medal1.unlocked)
+        refMedals.child(medal2.name).childByAutoId().setValue(medal2.unlocked)
+        refMedals.child(medal3.name).childByAutoId().setValue(medal3.unlocked)
+        refMedals.child(medal4.name).childByAutoId().setValue(medal4.unlocked)
+
+        
+        medalHandler = refMedals.child(medal1.name).observe(.childAdded, with: {(data) in
+            let medal : String = (data.value as? String)!
+            debugPrint(medal)
+        })
     }
+    
     
     public func hello(x: String) -> Int{
         
-        print(med1)
+        //print(med1)
         
         return 0
         
