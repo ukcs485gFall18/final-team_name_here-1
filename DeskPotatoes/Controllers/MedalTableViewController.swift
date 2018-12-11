@@ -15,12 +15,12 @@ class MedalTableViewController: UITableViewController {
         dismiss(animated:true, completion: nil)
     }
     
-    
     var connectWorkoutView: WorkoutViewController = WorkoutViewController()
     var checkStatus: Int = 0
     var medals: [Medal] = []
     var med1: String = "Hello"
     var med3: String = " "
+
     
     var refMedals: DatabaseReference! = Database.database().reference()
     var medalHandler: DatabaseHandle!
@@ -37,9 +37,10 @@ class MedalTableViewController: UITableViewController {
     }
     
     @IBAction func returnButton(_ sender: Any) {
-        print("I have returned")
+    
         checkStatus = 2
         med3 = "Unlocked"
+        //call function
     }
     
     override func viewDidLoad() {
@@ -149,14 +150,15 @@ class MedalTableViewController: UITableViewController {
         //print(connectWorkoutView.WALKING)
         
         print(checkStatus)
+        
         let medal1 = Medal(name: "Welcome", unlocked: "Unlocked")
         //When the user opens the Medal page this will unlock
         
         let medal2 = Medal(name: "Walk a Mile in my Shoes", unlocked: "Locked")
         //When the user walks a mile
         
-        let medal3 = Medal(name: "Welcome Back", unlocked: "Locked")
-        //When the user opens the Medal page again (hits Return)
+        let medal3 = Medal(name: "Walk it Out", unlocked: "Locked")
+        //When the user clicks on the walk option
         
         let medal4 = Medal(name: "First Workout", unlocked: "Locked")
         //When the user opens up the workout tab
@@ -167,22 +169,24 @@ class MedalTableViewController: UITableViewController {
         medals.append(medal4)
         
         med1 = medal1.unlocked
-        //med3 = medal3.unlocked
         
-        medal3.unlocked = med3
         
         //checkStatus = hello(x: med1)
+        connectWorkoutView.distanceTraveled = 1.1
         
-        //checkStatus = 2
-        if (checkStatus == 1)
+        if(connectWorkoutView.distanceTraveled >= 1.0)
         {
             medal2.unlocked = "Unlocked"
         }
-        else if (checkStatus == 2)
+        
+        if (medal2.unlocked == "Unlocked" || medal3.unlocked == "Unlocked")
         {
-            medal3.unlocked = "Unlocked"
+            medal4.unlocked = "Unlocked"
         }
         
+        /*if (connectWorkoutView.walkButton.currentTitleColor == UIColor.blue) {
+            medal3.unlocked = "Unlocked"
+        }*/
         
         //Save the medal values
         refMedals.child(medal1.name).childByAutoId().setValue(medal1.unlocked)
@@ -190,11 +194,27 @@ class MedalTableViewController: UITableViewController {
         refMedals.child(medal3.name).childByAutoId().setValue(medal3.unlocked)
         refMedals.child(medal4.name).childByAutoId().setValue(medal4.unlocked)
 
-        
+        //Reads the data from the saved medal values and puts it in the proper place
         medalHandler = refMedals.child(medal1.name).observe(.childAdded, with: {(data) in
-            let medal : String = (data.value as? String)!
-            debugPrint(medal)
+            medal1.unlocked = (data.value as? String)!
+            debugPrint(medal1.unlocked)
         })
+        
+        medalHandler = refMedals.child(medal2.name).observe(.childAdded, with: {(data) in
+            medal2.unlocked = (data.value as? String)!
+            debugPrint(medal2.unlocked)
+        })
+        
+        medalHandler = refMedals.child(medal3.name).observe(.childAdded, with: {(data) in
+            medal3.unlocked = (data.value as? String)!
+            debugPrint(medal3.unlocked)
+        })
+        
+        medalHandler = refMedals.child(medal4.name).observe(.childAdded, with: {(data) in
+            medal4.unlocked = (data.value as? String)!
+            debugPrint(medal4.unlocked)
+        })
+        
     }
     
     
@@ -209,7 +229,8 @@ class MedalTableViewController: UITableViewController {
 
     
 }
-/* 1. Create a medal that unlocks when you use the return button
+/*
  2. Create a medal that unlocks when you hit the workout button
  3. Create a medal that unlocks when you run, walk, etc
- 4. Create a medal that unlocks when you add a picture*/
+ 4. Create a medal that unlocks when you add a picture
+ */
