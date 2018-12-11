@@ -15,18 +15,17 @@ class MedalTableViewController: UITableViewController {
         dismiss(animated:true, completion: nil)
     }
     
+    //Connects the variables from the workout view controller
     var connectWorkoutView: WorkoutViewController = WorkoutViewController()
+    
     var checkStatus: Int = 0
     var medals: [Medal] = []
-    var med1: String = "Hello"
-    var med3: String = " "
-
+    var med1: String = "Unlocked"
     
     var refMedals: DatabaseReference! = Database.database().reference()
     var medalHandler: DatabaseHandle!
-    //refMedals = Database.database().reference()
-    private var medalStorage = Storage()
     
+    //Class of Medals for the application
     class Medal {
         var name: String
         var unlocked: String
@@ -38,9 +37,6 @@ class MedalTableViewController: UITableViewController {
     
     @IBAction func returnButton(_ sender: Any) {
     
-        checkStatus = 2
-        med3 = "Unlocked"
-        //call function
     }
     
     override func viewDidLoad() {
@@ -48,18 +44,6 @@ class MedalTableViewController: UITableViewController {
         
         loadMedals()
 
-        
-        /*refMedals.child("Medal").childByAutoId().setValue("Unlocked")
-        
-        medalHandler = refMedals.child("Medal").observe(.childAdded, with: {(data) in
-            let name : String = (data.value as? String)!
-            debugPrint(name)
-        })
-        
-        medalHandler = refMedals.child("Medal").observe(.childAdded, with: {(data) in
-            let name = self.medals
-            debugPrint(name)
-        })*/
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -88,8 +72,6 @@ class MedalTableViewController: UITableViewController {
         }
         
         let medal = medals[indexPath.row]
-        
-        //cell.textLabel?.text = "Section \(indexPath.section) Row \(indexPath.row)"
         
         cell.medal1.text = medal.name
         cell.medal1des.text = medal.unlocked
@@ -146,11 +128,6 @@ class MedalTableViewController: UITableViewController {
 
     public func loadMedals()
     {
-        
-        //print(connectWorkoutView.WALKING)
-        
-        print(checkStatus)
-        
         let medal1 = Medal(name: "Welcome", unlocked: "Unlocked")
         //When the user opens the Medal page this will unlock
         
@@ -163,17 +140,26 @@ class MedalTableViewController: UITableViewController {
         let medal4 = Medal(name: "First Workout", unlocked: "Locked")
         //When the user opens up the workout tab
         
+        let medal5 = Medal(name: "Walk a Mile in my Shoes: Bronze", unlocked: "Locked")
+        //When the user walks for longer
+        
+        let medal6 = Medal(name: "Walk a Mile in my Shoes: Silver", unlocked: "Locked")
+        //When the user walks for longer
+        
+        let medal7 = Medal(name: "Walk a Mile in my Shoes: Gold", unlocked: "Locked")
+        //When the user walks for longer
+        
         medals.append(medal1)
         medals.append(medal2)
+        medals.append(medal5)
+        medals.append(medal6)
+        medals.append(medal7)
         medals.append(medal3)
         medals.append(medal4)
         
-        med1 = medal1.unlocked
+        //connectWorkoutView.distanceTraveled = 1.1
         
-        
-        //checkStatus = hello(x: med1)
-        connectWorkoutView.distanceTraveled = 1.1
-        
+        //Conditions to see if the medal should be unlocked or not
         if(connectWorkoutView.distanceTraveled >= 1.0)
         {
             medal2.unlocked = "Unlocked"
@@ -184,53 +170,37 @@ class MedalTableViewController: UITableViewController {
             medal4.unlocked = "Unlocked"
         }
         
+        if(connectWorkoutView.distanceTraveled >= 5.0)
+        {
+            medal5.unlocked = "Unlocked"
+        }
+        
+        if(connectWorkoutView.distanceTraveled >= 10.0)
+        {
+            medal6.unlocked = "Unlocked"
+        }
+        
+        if(connectWorkoutView.distanceTraveled >= 20.0)
+        {
+            medal7.unlocked = "Unlocked"
+        }
+        
         /*if (connectWorkoutView.walkButton.currentTitleColor == UIColor.blue) {
             medal3.unlocked = "Unlocked"
         }*/
         
-        //Save the medal values
-        refMedals.child(medal1.name).childByAutoId().setValue(medal1.unlocked)
-        refMedals.child(medal2.name).childByAutoId().setValue(medal2.unlocked)
-        refMedals.child(medal3.name).childByAutoId().setValue(medal3.unlocked)
-        refMedals.child(medal4.name).childByAutoId().setValue(medal4.unlocked)
-
+        
+        //Save the medal values in the database
+        for i in 0...6 {
+            refMedals.child(medals[i].name).childByAutoId().setValue(medals[i].unlocked)
+        }
+        
         //Reads the data from the saved medal values and puts it in the proper place
-        medalHandler = refMedals.child(medal1.name).observe(.childAdded, with: {(data) in
-            medal1.unlocked = (data.value as? String)!
-            debugPrint(medal1.unlocked)
-        })
-        
-        medalHandler = refMedals.child(medal2.name).observe(.childAdded, with: {(data) in
-            medal2.unlocked = (data.value as? String)!
-            debugPrint(medal2.unlocked)
-        })
-        
-        medalHandler = refMedals.child(medal3.name).observe(.childAdded, with: {(data) in
-            medal3.unlocked = (data.value as? String)!
-            debugPrint(medal3.unlocked)
-        })
-        
-        medalHandler = refMedals.child(medal4.name).observe(.childAdded, with: {(data) in
-            medal4.unlocked = (data.value as? String)!
-            debugPrint(medal4.unlocked)
-        })
-        
+        for i in 0...6 {
+            medalHandler = refMedals.child(medals[i].name).observe(.childAdded, with: {(data) in
+                self.medals[i].unlocked = (data.value as? String)!
+                debugPrint(self.medals[i].unlocked)
+            })
+        }
     }
-    
-    
-    public func hello(x: String) -> Int{
-        
-        //print(med1)
-        
-        return 0
-        
-    }
-    
-
-    
 }
-/*
- 2. Create a medal that unlocks when you hit the workout button
- 3. Create a medal that unlocks when you run, walk, etc
- 4. Create a medal that unlocks when you add a picture
- */
