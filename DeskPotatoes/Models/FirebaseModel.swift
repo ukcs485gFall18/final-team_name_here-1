@@ -31,20 +31,28 @@ class FirebaseModel {
             self.ref?.child("workouts").child((Auth.auth().currentUser?.uid)!).child(formatter.string(from: Date())).setValue(workout)
         }
     }
-    func readWorkouts(uid: String, completion: @escaping ([[String:Any]])->Void)  {
-        var workouts: [[String:Any]] = []
+    
+    func readWorkouts(uid: String, completion: @escaping ([Workout])->Void)  {
+        var workouts: [Workout] = []
         let group = DispatchGroup()
+        var firstname: String = ""
+        var lastname: String = ""
         group.enter()
         DispatchQueue.global(qos: .default).async {
-            self.ref!.child("workouts").child((Auth.auth().currentUser?.uid)!).observe(.value) { (datasnapshot) in
+            self.getUsername(uid: uid){  (first, last) in
+                print("\(first) \(last)")
+                firstname.append(first)
+                lastname.append(last)
+                //group.leave()
+            }
+                
+            self.ref!.child("workouts").child(uid).observe(.value) { (datasnapshot) in
                 guard let workoutsnapshot = datasnapshot.children.allObjects as? [DataSnapshot] else {return}
                 for workout in workoutsnapshot {
                     //print(workout)
-                    let newWorkout:[String:Any] = [
-                        "workoutType": workout.childSnapshot(forPath: "workoutType").value as! String,
-                        "distance": workout.childSnapshot(forPath:"distance").value as! Double,
-                        "time": workout.childSnapshot(forPath:"time").value as! String
-                    ]
+                    
+                    let newWorkout:Workout = Workout(firstName: firstname, lastName: lastname, time: workout.childSnapshot(forPath: "time").value as! String, type: workout.childSnapshot(forPath: "workoutType").value as! String, Value: workout.childSnapshot(forPath:"distance").value as! Double)
+
                     workouts.append(newWorkout)
                 }
                 group.leave()
@@ -55,5 +63,42 @@ class FirebaseModel {
             
         }
         
+    }
+    
+    func getUsername(uid: String, completion: @escaping (String, String) -> Void) {
+        let group = DispatchGroup()
+        var firstName: String = ""
+        var lastName: String = ""
+        group.enter()
+        DispatchQueue.global(qos: .default).async {
+            self.ref!.child("users").observe(.value) { (datasnapshot) in
+                guard let usersnapshot = datasnapshot.children.allObjects as? [DataSnapshot] else {return}
+                for user in usersnapshot {
+                    if (user.key == uid){
+                        firstName.append( user.childSnapshot(forPath: "firstname").value as? String ?? "User")
+                        lastName.append( user.childSnapshot(forPath: "lastname").value as? String ?? "User")
+                    }
+                }
+                group.leave()
+            }
+        }
+        group.notify(queue: .main) {
+            completion(firstName, lastName)
+        }
+    }
+}
+
+class Workout {
+    var userFirstName: String
+    var userLastName: String
+    var time: String
+    var type: String
+    var value: Double
+    init (firstName: String, lastName: String, time: String, type: String, Value: Double) {
+        self.userFirstName = firstName
+        self.userLastName = lastName
+        self.time = time
+        self.type = type
+        self.value = Value
     }
 }

@@ -36,9 +36,17 @@ class HomePageViewController: UIViewController {
     @IBAction func logOut(_ sender: UIButton) {
         // Work to log out from the firebase needs to go here.
         // After logged out, should segue back to login page.
-        try! Auth.auth().signOut()
-        print("loggedout")
-        self.performSegue(withIdentifier: "logoutSegue", sender: self)
+        let logoutConfirm = UIAlertController(title: "Log Out?", message: "Are you sure you want to log out?", preferredStyle: .alert)
+        logoutConfirm.addAction(UIAlertAction(title:"Cancel", style: .default, handler: {
+            [weak logoutConfirm] (_) in
+            print("Cancelled logout")
+        }))
+        logoutConfirm.addAction(UIAlertAction(title: "Log out",style: .default, handler: { [weak logoutConfirm] (_) in
+            try! Auth.auth().signOut()
+            print("loggedout")
+            self.performSegue(withIdentifier: "logoutSegue", sender: self)
+        }))
+        self.present(logoutConfirm, animated: true, completion: nil)
     }
     
     let healthManager:HealthKitManager = HealthKitManager()

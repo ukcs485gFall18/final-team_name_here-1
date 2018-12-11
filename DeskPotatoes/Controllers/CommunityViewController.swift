@@ -19,21 +19,25 @@ import Firebase
 class CommunityViewController: UIViewController {
 
     @IBOutlet weak var workoutsTable: UITableView!
-    var workouts: [[String:Any]] = []
+    var workouts: [Workout] = []
     var firebaseModel: FirebaseModel = FirebaseModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         workoutsTable.delegate = self
         workoutsTable.dataSource = self
         // get all of the logged in user's workouts
-        firebaseModel.readWorkouts(uid: (Auth.auth().currentUser?.uid)!) {
+        
+        firebaseModel.readWorkouts(uid: Auth.auth().currentUser?.uid ?? "") {
             work in
             self.workouts = work
             self.workoutsTable.reloadData()
         }
         
         // Do any additional setup after loading the view.
+        print("Workouts: \(workouts)")
     }
+    
+    
     
     
 }
@@ -51,10 +55,10 @@ extension CommunityViewController: UITableViewDelegate, UITableViewDataSource {
         let cellWorkout: WorkoutTableViewCell? = tableView.dequeueReusableCell(withIdentifier: "workoutMoment", for: indexPath) as? WorkoutTableViewCell
         if let cell = cellWorkout {
             
-            cell.typeLabel?.text = workouts[indexPath.row]["workoutType"] as? String
-            cell.dateLabel?.text = workouts[indexPath.row]["time"] as? String
-            cell.valueLabel?.text = workouts[indexPath.row]["distance"] as? String
-            
+            cell.typeLabel?.text = workouts[indexPath.row].type as String
+            cell.dateLabel?.text = workouts[indexPath.row].time as String
+            cell.valueLabel?.text = String(format: "%f", workouts[indexPath.row].value)
+            cell.nameLabel?.text = "\(workouts[indexPath.row].userFirstName as String) \(workouts[indexPath.row].userLastName as String)"
             return cell
         }
         
