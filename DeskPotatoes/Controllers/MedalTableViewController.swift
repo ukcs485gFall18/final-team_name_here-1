@@ -199,7 +199,7 @@ class MedalTableViewController: UITableViewController {
         for i in 0...6 {
             medalHandler = refMedals.child(medals[i].name).observe(.childAdded, with: {(data) in
                 self.medals[i].unlocked = (data.value as? String)!
-                debugPrint(self.medals[i].unlocked)
+                //debugPrint(self.medals[i].unlocked)
             })
         }
     }
