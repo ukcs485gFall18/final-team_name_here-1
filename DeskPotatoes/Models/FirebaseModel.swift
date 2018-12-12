@@ -78,8 +78,9 @@ class FirebaseModel {
                         lastName.append( user.childSnapshot(forPath: "lastname").value as? String ?? "User")
                     }
                 }
-                self.group.leave()
+                
             }
+            self.group.leave()
         }
         self.group.notify(queue: .main) {
             completion(firstName, lastName)
