@@ -17,7 +17,6 @@
 		7EF549E121792023006BC81E /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF549E021792023006BC81E /* CommunityViewController.swift */; };
 		BB146105218BA3EC001D76B5 /* MedalsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB146104218BA3EC001D76B5 /* MedalsTableViewCell.swift */; };
 		BB146107218BA99F001D76B5 /* MedalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB146106218BA99F001D76B5 /* MedalTableViewController.swift */; };
-		FD5F247021BEBF4400063AF9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F246F21BEBF4400063AF9 /* ProfileViewController.swift */; };
 		FD5F247521BEC32800063AF9 /* HealthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F247421BEC32800063AF9 /* HealthModel.swift */; };
 		FD5F247721BEE2D700063AF9 /* FirebaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F247621BEE2D700063AF9 /* FirebaseModel.swift */; };
 		FD5F247921BF538D00063AF9 /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5F247821BF538D00063AF9 /* WorkoutTableViewCell.swift */; };
@@ -42,7 +41,6 @@
 		7EF549E021792023006BC81E /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		BB146104218BA3EC001D76B5 /* MedalsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedalsTableViewCell.swift; sourceTree = "<group>"; };
 		BB146106218BA99F001D76B5 /* MedalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedalTableViewController.swift; sourceTree = "<group>"; };
-		FD5F246F21BEBF4400063AF9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FD5F247421BEC32800063AF9 /* HealthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthModel.swift; sourceTree = "<group>"; };
 		FD5F247621BEE2D700063AF9 /* FirebaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModel.swift; sourceTree = "<group>"; };
 		FD5F247821BF538D00063AF9 /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
@@ -98,7 +96,6 @@
 				7EF549E021792023006BC81E /* CommunityViewController.swift */,
 				7E0C242721869F8C0090DF62 /* LogViewController.swift */,
 				7E0C242B21869FAC0090DF62 /* SignUpViewController.swift */,
-				FD5F246F21BEBF4400063AF9 /* ProfileViewController.swift */,
 				FD5F247821BF538D00063AF9 /* WorkoutTableViewCell.swift */,
 			);
 			path = Controllers;
@@ -310,7 +307,6 @@
 				7E0C242C21869FAC0090DF62 /* SignUpViewController.swift in Sources */,
 				FD5F247921BF538D00063AF9 /* WorkoutTableViewCell.swift in Sources */,
 				7E0C242821869F8C0090DF62 /* LogViewController.swift in Sources */,
-				FD5F247021BEBF4400063AF9 /* ProfileViewController.swift in Sources */,
 				FD5F247521BEC32800063AF9 /* HealthModel.swift in Sources */,
 				BB146105218BA3EC001D76B5 /* MedalsTableViewCell.swift in Sources */,
 				FDAACC782176789B0005AF23 /* AppDelegate.swift in Sources */,

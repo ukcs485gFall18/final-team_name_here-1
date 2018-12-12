@@ -4,7 +4,7 @@
 //
 //  Created by Siyuan Chen on 10/28/18.
 //  Copyright © 2018 Darren Powers. All rights reserved.
-//
+//  Coded by Siyuan Chen unless otherwise noted
 
 import UIKit
 import Firebase
@@ -48,6 +48,8 @@ class SignUpViewController: UIViewController {
                             }
                             print(Auth.auth().currentUser?.uid as Any)
                             let newUser:[String: AnyObject] = [
+                                "firstname": self.firstName?.text as AnyObject,
+                                "lastname": self.lastName?.text as AnyObject,
                                 "uid": Auth.auth().currentUser?.uid as AnyObject,
                                 "email": self.email.text! as AnyObject,
                                 "totalMinute" : 0 as AnyObject,
@@ -59,6 +61,13 @@ class SignUpViewController: UIViewController {
                             if (Auth.auth().currentUser?.uid != nil){
                                 self.ref?.child("users").child((Auth.auth().currentUser?.uid)!).setValue(newUser)
                             }
+                            let createConfirm = UIAlertController(title: "Account Created", message: "Account has been created for \(newUser["firstname"]!) \(newUser["lastname"]!) (\(newUser["email"]!)). Login to get started!", preferredStyle: .alert)
+                            createConfirm.addAction(UIAlertAction(title:"Confirm", style: .default, handler: {
+                                [weak createConfirm] (_) in
+                                print("confirmed creation")
+                                self.dismiss(animated: true, completion: nil)
+                            }))
+                            self.present(createConfirm, animated: true, completion: nil)
                             print("\(email) created")
                             // self.navigationController!.popViewController(animated: true)
                             // [END_EXCLUDE]

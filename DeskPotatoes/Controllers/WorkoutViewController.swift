@@ -4,7 +4,7 @@
 //
 //  Created by Siyuan Chen on 10/18/18.
 //  Copyright © 2018 Darren Powers. All rights reserved.
-//
+// Code developed by Siyuan Chen unless otherwise noted.
 
 import HealthKit
 import UIKit
@@ -12,9 +12,9 @@ import CoreLocation
 
 class WorkoutViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var distance: UILabel!
-    @IBOutlet weak var mph: UILabel!
+    
     @IBOutlet weak var time: UILabel!
-    @IBOutlet weak var calorie: UILabel!
+    
     
     @IBOutlet weak var walkButton: UIButton!
     @IBOutlet weak var runButton: UIButton!
@@ -126,6 +126,7 @@ class WorkoutViewController: UIViewController, CLLocationManagerDelegate {
     func saveDistance(){
         self.workoutStorage.currentDistance = distanceTraveled
         self.workoutStorage.totalDistance += distanceTraveled
+        self.distance.text = String(format: "%.2f", distanceTraveled) //Darren
     }
     
     @IBAction func share(_ sender: AnyObject) {
@@ -134,23 +135,39 @@ class WorkoutViewController: UIViewController, CLLocationManagerDelegate {
             healthManager.shareData(dataType: HKQuantityTypeIdentifier.distanceWalkingRunning, value: distanceTraveled, date: NSDate()) { (sample, error) in
                 print("Walking worked")
                 }
-            firebaseMod.postWorkout(workoutType: "Walking", value: distanceTraveled)
+            postToCommunity(workoutType: "Walking", value: distanceTraveled)
         case RUNNING:
             healthManager.shareData(dataType: HKQuantityTypeIdentifier.distanceWalkingRunning, value: distanceTraveled, date: NSDate()) { (sample, error) in
                 print("Running Worked")
             }
-            firebaseMod.postWorkout(workoutType: "Running", value: distanceTraveled)
+            postToCommunity(workoutType: "Running", value: distanceTraveled)
         case RIDING:
             healthManager.shareData(dataType: HKQuantityTypeIdentifier.distanceCycling, value: distanceTraveled, date: NSDate()) { (sample, error) in
                 print("riding worked")
             }
-            firebaseMod.postWorkout(workoutType: "Riding", value: distanceTraveled)
+            postToCommunity(workoutType: "Riding", value: distanceTraveled)
         default:
             healthManager.shareData(dataType: HKQuantityTypeIdentifier.distanceWalkingRunning, value: distanceTraveled, date: NSDate()) { (sample, error) in
                 print("DEFAULT")
             }
-            firebaseMod.postWorkout(workoutType: "unknown", value: distanceTraveled)
+            postToCommunity(workoutType: "unknown", value: distanceTraveled)
         }
+    }
+    
+    /* permission to post notification - Darren Powers
+     * @description creates notification asking for permission to post to community
+     */
+    func postToCommunity(workoutType: String, value: Double) {
+        let postConfirm = UIAlertController(title: "Post to Community?", message: "Would you like to post this workout to community as well as Health?", preferredStyle: .alert)
+        postConfirm.addAction(UIAlertAction(title: "Yes, Please Post",style: .default, handler: { [weak postConfirm] (_) in
+            self.firebaseMod.postWorkout(workoutType: workoutType, value: value)
+        }))
+        postConfirm.addAction(UIAlertAction(title:"No, Thank You", style: .default, handler: {
+            [weak postConfirm] (_) in
+            print("HK Only")
+        }))
+        
+        self.present(postConfirm, animated: true, completion: nil)
     }
     
     /* Set three different situations for each button

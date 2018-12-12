@@ -4,7 +4,7 @@
 //
 //  Created by Siyuan Chen on 10/28/18.
 //  Copyright © 2018 Darren Powers. All rights reserved.
-//
+//  Coded by Siyuan Chen unless otherwise noted
 
 import UIKit
 import Firebase
@@ -14,12 +14,14 @@ class LogViewController: UIViewController {
     @IBOutlet weak var TextFieldPassword: UITextField!
     @IBOutlet weak var LabelStatus: UILabel!
     
+    
+    
     @IBAction func login(_ sender: Any) {
         if let email = self.TextFieldUsername.text, let password = self.TextFieldPassword.text{
             Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                 if (user != nil) {
                     print("user: \(String(describing: user))")
-                    self.performSegue(withIdentifier: "loginSegue", sender: self)
+                    self.performSegue(withIdentifier: "loginSegue", sender: self) //Segue added by Darren Powers
                 } else{
                     print("Email/password incorrect!")
                 }
@@ -33,6 +35,9 @@ class LogViewController: UIViewController {
         super.viewDidLoad()
         TextFieldPassword.isSecureTextEntry = true;
         // Do any additional setup after loading the view.
+        if (Auth.auth().currentUser != nil) {
+            self.performSegue(withIdentifier: "loginSegue", sender: self)
+        }
     }
     
     override func didReceiveMemoryWarning() {

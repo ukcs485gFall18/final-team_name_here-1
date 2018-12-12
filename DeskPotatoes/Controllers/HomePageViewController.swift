@@ -4,7 +4,7 @@
 //
 //  Created by Siyuan Chen on 10/29/18.
 //  Copyright © 2018 Darren Powers. All rights reserved.
-//
+//  Coded by Siyuan Chen unless otherwise noted
 
 /* Some of the formatting etc. should be offloaded into a model rather than being
  * handled here in the the controller.
@@ -17,28 +17,36 @@ import HealthKit
 import Firebase
 
 class HomePageViewController: UIViewController {
-    @IBOutlet weak var totalExerciseTime: UILabel!
+    
     
     @IBOutlet weak var heightLabel: UILabel!
     @IBOutlet weak var weightLabel: UILabel!
     @IBOutlet weak var bmiLabel: UILabel!
     
-    @IBOutlet weak var totalDistanceToday: UILabel!
-    @IBOutlet weak var totalEnergyToday: UILabel!
     
-    @IBOutlet weak var totalDistance: UILabel!
-    @IBOutlet weak var totalEnergy: UILabel!
     
-
-    //profile button calls profile view as modal
     
-    //need to add image to logout button
+    
+    // Reload button: Darren Powers
+    @IBAction func Reload(_ sender: UIButton) {
+        self.loadData()
+    }
+    
+    // Logout button: Darren Powers
     @IBAction func logOut(_ sender: UIButton) {
         // Work to log out from the firebase needs to go here.
         // After logged out, should segue back to login page.
-        try! Auth.auth().signOut()
-        print("loggedout")
-        self.performSegue(withIdentifier: "logoutSegue", sender: self)
+        let logoutConfirm = UIAlertController(title: "Log Out?", message: "Are you sure you want to log out?", preferredStyle: .alert)
+        logoutConfirm.addAction(UIAlertAction(title:"Cancel", style: .default, handler: {
+            [weak logoutConfirm] (_) in
+            print("Cancelled logout")
+        }))
+        logoutConfirm.addAction(UIAlertAction(title: "Log out",style: .default, handler: { [weak logoutConfirm] (_) in
+            try! Auth.auth().signOut()
+            print("loggedout")
+            self.performSegue(withIdentifier: "logoutSegue", sender: self)
+        }))
+        self.present(logoutConfirm, animated: true, completion: nil)
     }
     
     let healthManager:HealthKitManager = HealthKitManager()
@@ -49,10 +57,10 @@ class HomePageViewController: UIViewController {
     var weight: HKQuantitySample?
     var weightKG: Double = 0.0
     
-    //To handle asynchronous functions
+    //To handle asynchronous functions: Darren Powers
     let dispatchGroup = DispatchGroup()
     
-    func setHeight(){
+    func setHeight(){ // Reads Height Data from healthkit: Darren Powers
         self.healthManager.readData(dataType: HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!) { (sample, error) in
             
             let height:HKQuantitySample? = sample as? HKQuantitySample
@@ -70,7 +78,7 @@ class HomePageViewController: UIViewController {
         }
     }
     
-    func setWeight(){
+    func setWeight(){ // Reads weight data from healthkit: Darren Powers
         self.healthManager.readData(dataType: HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!) { (sample, error) in
             
             let weight:HKQuantitySample? = sample as? HKQuantitySample
@@ -88,7 +96,7 @@ class HomePageViewController: UIViewController {
         }
     }
     
-    func setBMI(){
+    func setBMI(){ // calls setHeight and setWeight to calculate BMI: Darren Powers
         dispatchGroup.enter()
         setHeight()
         print("After Set Height: \(self.heightM)")
@@ -115,37 +123,37 @@ class HomePageViewController: UIViewController {
         }
     }
     
-    func setEnergy(){
-        //Refer from last project and adjusted by Siyuan Chen
-        /* @desc: Get data on Energy Burned Goal from HealthKit
-         * @author: Darren Powers
-         * Notes: based on code for setHeight below and includes information gathered from: https://crunchybagel.com/accessing-activity-rings-data-from-healthkit/
-         */
-        
-        // Call HealthKitManager's getSample() method to get active energy for today from HealthKit
-        self.healthManager.getEnergyBurned(completion: { (userActiveEnergyBurned, userAEBGoal, error) -> Void in
-            
-            if( error != nil) {
-                print("Error: \(String(describing: error?.localizedDescription))")
-                return
-            }
-            if (userActiveEnergyBurned != nil) {
-                self.workoutStorage.currentEnergyBurned = (userActiveEnergyBurned as! Double)
-                self.workoutStorage.totalEnergyBurned += (userActiveEnergyBurned as! Double)
-                
-                self.totalEnergy.text = "\(String(self.workoutStorage.totalEnergyBurned)) cal"
-            }
-            var activeEnergyBurnedString = "No Active Energy Burned"
-            
-            if (userAEBGoal != nil) {
-                activeEnergyBurnedString = "\(String(describing: userActiveEnergyBurned!)) cal"
-            }
-            
-            DispatchQueue.main.async {
-                self.totalEnergyToday.text = activeEnergyBurnedString
-            }
-        })
-    }
+//    func setEnergy(){
+//        //Refer from last project and adjusted by Siyuan Chen
+//        /* @desc: Get data on Energy Burned Goal from HealthKit
+//         * @author: Darren Powers
+//         * Notes: based on code for setHeight below and includes information gathered from: https://crunchybagel.com/accessing-activity-rings-data-from-healthkit/
+//         */
+//
+//        // Call HealthKitManager's getSample() method to get active energy for today from HealthKit
+//        self.healthManager.getEnergyBurned(completion: { (userActiveEnergyBurned, userAEBGoal, error) -> Void in
+//
+//            if( error != nil) {
+//                print("Error: \(String(describing: error?.localizedDescription))")
+//                return
+//            }
+//            if (userActiveEnergyBurned != nil) {
+//                self.workoutStorage.currentEnergyBurned = (userActiveEnergyBurned as! Double)
+//                self.workoutStorage.totalEnergyBurned += (userActiveEnergyBurned as! Double)
+//
+//                self.totalEnergy.text = "\(String(self.workoutStorage.totalEnergyBurned)) cal"
+//            }
+//            var activeEnergyBurnedString = "No Active Energy Burned"
+//
+//            if (userAEBGoal != nil) {
+//                activeEnergyBurnedString = "\(String(describing: userActiveEnergyBurned!)) cal"
+//            }
+//
+//            DispatchQueue.main.async {
+//                self.totalEnergyToday.text = activeEnergyBurnedString
+//            }
+//        })
+//    }
     
     /*func setDistanceAndTime(){
         self.distanceLabel.text = "\(String(describing: self.workoutStorage.currentDistance))"
@@ -157,11 +165,15 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.healthModel.authorizeHomepageElements()
-        setBMI()
-        setEnergy()
-        //setDistanceAndTime()
+        self.loadData()
         // Do any additional setup after loading the view.
+    }
+    
+    func loadData () {
+        self.healthModel.authorizeHomepageElements() //Added appropriate Auth: Darren Powers
+        setBMI()
+//        setEnergy()
+        //setDistanceAndTime()
     }
     
     override func didReceiveMemoryWarning() {

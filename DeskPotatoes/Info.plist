@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSHealthShareUsageDescription</key>
-	<string>some string value stating the reason</string>
+	<string>Desk Potatoes will use some health data in order to Generate your BMI as well as enable you to store workout data into Apple&apos;s Health App</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -46,7 +46,7 @@
 	<key>NSHealthUpdateUsageDescription</key>
 	<string>some string value stating the reason</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Your location will be used to track the distance you walk.</string>
+	<string>Your location will be used to track the distance you walk, run, or cycle</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string></string>
 </dict>

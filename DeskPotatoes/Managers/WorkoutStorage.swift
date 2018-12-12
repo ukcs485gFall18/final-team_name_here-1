@@ -4,7 +4,7 @@
 //
 //  Created by Siyuan Chen on 12/3/18.
 //  Copyright © 2018 Darren Powers. All rights reserved.
-//
+//  Coded by Siyuan Chen unless otherwise noted
 
 import Foundation
 import HealthKit
