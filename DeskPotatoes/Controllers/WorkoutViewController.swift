@@ -12,9 +12,9 @@ import CoreLocation
 
 class WorkoutViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var distance: UILabel!
-    @IBOutlet weak var mph: UILabel!
+    
     @IBOutlet weak var time: UILabel!
-    @IBOutlet weak var calorie: UILabel!
+    
     
     @IBOutlet weak var walkButton: UIButton!
     @IBOutlet weak var runButton: UIButton!
@@ -144,7 +144,7 @@ class WorkoutViewController: UIViewController, CLLocationManagerDelegate {
             healthManager.shareData(dataType: HKQuantityTypeIdentifier.distanceCycling, value: distanceTraveled, date: NSDate()) { (sample, error) in
                 print("riding worked")
             }
-            firebaseMod.postWorkout(workoutType: "Riding", value: distanceTraveled)
+            //firebaseMod.postWorkout(workoutType: "Riding", value: distanceTraveled)
         default:
             healthManager.shareData(dataType: HKQuantityTypeIdentifier.distanceWalkingRunning, value: distanceTraveled, date: NSDate()) { (sample, error) in
                 print("DEFAULT")

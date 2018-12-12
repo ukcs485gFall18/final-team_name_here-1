@@ -18,6 +18,9 @@ import Firebase
 
 class CommunityViewController: UIViewController {
 
+    @IBAction func ReloadPosts(_ sender: UIButton) {
+        self.workoutsTable.reloadData()
+    }
     @IBOutlet weak var workoutsTable: UITableView!
     var workouts: [Workout] = []
     var firebaseModel: FirebaseModel = FirebaseModel()
@@ -25,6 +28,7 @@ class CommunityViewController: UIViewController {
         super.viewDidLoad()
         workoutsTable.delegate = self
         workoutsTable.dataSource = self
+        
         // get all of the logged in user's workouts
         
         firebaseModel.readWorkouts(uid: Auth.auth().currentUser?.uid ?? "") {
@@ -34,7 +38,7 @@ class CommunityViewController: UIViewController {
         }
         
         // Do any additional setup after loading the view.
-        print("Workouts: \(workouts)")
+        
     }
     
     
@@ -66,6 +70,6 @@ extension CommunityViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80.0
+        return 95.0
     }
 }

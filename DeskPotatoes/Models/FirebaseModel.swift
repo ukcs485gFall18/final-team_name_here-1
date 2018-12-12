@@ -32,21 +32,23 @@ class FirebaseModel {
         }
     }
     
+    let group = DispatchGroup()
     func readWorkouts(uid: String, completion: @escaping ([Workout])->Void)  {
         var workouts: [Workout] = []
-        let group = DispatchGroup()
         var firstname: String = ""
         var lastname: String = ""
-        group.enter()
+        self.group.enter()
+        self.getUsername(uid: uid){  (first, last) in
+            print("\(first) \(last)")
+            firstname.append(first)
+            lastname.append(last)
+            //group.leave()
+        }
+        self.group.enter()
         DispatchQueue.global(qos: .default).async {
-            self.getUsername(uid: uid){  (first, last) in
-                print("\(first) \(last)")
-                firstname.append(first)
-                lastname.append(last)
-                //group.leave()
-            }
-                
-            self.ref!.child("workouts").child(uid).observe(.value) { (datasnapshot) in
+            
+            
+            self.ref?.child("workouts").child(uid).observe(.value) { (datasnapshot) in
                 guard let workoutsnapshot = datasnapshot.children.allObjects as? [DataSnapshot] else {return}
                 for workout in workoutsnapshot {
                     //print(workout)
@@ -55,21 +57,18 @@ class FirebaseModel {
 
                     workouts.append(newWorkout)
                 }
-                group.leave()
+                self.group.leave()
             }
-            group.notify(queue: .main) {
-                completion(workouts)
-            }
-            
+        }
+        self.group.notify(queue: .main) {
+            completion(workouts)
         }
         
     }
     
     func getUsername(uid: String, completion: @escaping (String, String) -> Void) {
-        let group = DispatchGroup()
         var firstName: String = ""
         var lastName: String = ""
-        group.enter()
         DispatchQueue.global(qos: .default).async {
             self.ref!.child("users").observe(.value) { (datasnapshot) in
                 guard let usersnapshot = datasnapshot.children.allObjects as? [DataSnapshot] else {return}
@@ -79,10 +78,10 @@ class FirebaseModel {
                         lastName.append( user.childSnapshot(forPath: "lastname").value as? String ?? "User")
                     }
                 }
-                group.leave()
+                self.group.leave()
             }
         }
-        group.notify(queue: .main) {
+        self.group.notify(queue: .main) {
             completion(firstName, lastName)
         }
     }
