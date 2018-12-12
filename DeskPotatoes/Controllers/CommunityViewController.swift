@@ -4,7 +4,7 @@
 //
 //  Created by Siyuan Chen on 10/18/18.
 //  Copyright © 2018 Darren Powers. All rights reserved.
-//
+//  Coded by Darren Powers unless otherwise noted
 
 /* This view controller should access the user's community information from the database,
  * and allow them to post a 'moment' that they can access.

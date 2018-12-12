@@ -4,7 +4,7 @@
 //
 //  Created by Siyuan Chen on 10/28/18.
 //  Copyright © 2018 Darren Powers. All rights reserved.
-//
+//  Coded by Siyuan Chen unless otherwise noted
 
 import UIKit
 import Firebase

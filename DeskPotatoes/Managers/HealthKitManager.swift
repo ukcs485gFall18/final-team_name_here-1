@@ -4,7 +4,7 @@
 //
 //  Created by Darren Powers on 23/10/2018.
 //  Copyright © 2018 Darren Powers. All rights reserved.
-//
+//  Coded by Darren Powers unless otherwise noted
 
 /* Health Kit Manager: Darren Powers
  * This file specifies the HealthKitManager class which performs actions related to accessing

@@ -4,7 +4,7 @@
 //
 //  Created by Siyuan Chen on 10/29/18.
 //  Copyright © 2018 Darren Powers. All rights reserved.
-//
+//  Coded by Siyuan Chen unless otherwise noted
 
 /* Some of the formatting etc. should be offloaded into a model rather than being
  * handled here in the the controller.
@@ -27,13 +27,12 @@ class HomePageViewController: UIViewController {
     
     
     
-
+    // Reload button: Darren Powers
     @IBAction func Reload(_ sender: UIButton) {
         self.loadData()
     }
     
-    
-    //need to add image to logout button
+    // Logout button: Darren Powers
     @IBAction func logOut(_ sender: UIButton) {
         // Work to log out from the firebase needs to go here.
         // After logged out, should segue back to login page.
@@ -58,10 +57,10 @@ class HomePageViewController: UIViewController {
     var weight: HKQuantitySample?
     var weightKG: Double = 0.0
     
-    //To handle asynchronous functions
+    //To handle asynchronous functions: Darren Powers
     let dispatchGroup = DispatchGroup()
     
-    func setHeight(){
+    func setHeight(){ // Reads Height Data from healthkit: Darren Powers
         self.healthManager.readData(dataType: HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!) { (sample, error) in
             
             let height:HKQuantitySample? = sample as? HKQuantitySample
@@ -79,7 +78,7 @@ class HomePageViewController: UIViewController {
         }
     }
     
-    func setWeight(){
+    func setWeight(){ // Reads weight data from healthkit: Darren Powers
         self.healthManager.readData(dataType: HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!) { (sample, error) in
             
             let weight:HKQuantitySample? = sample as? HKQuantitySample
@@ -97,7 +96,7 @@ class HomePageViewController: UIViewController {
         }
     }
     
-    func setBMI(){
+    func setBMI(){ // calls setHeight and setWeight to calculate BMI: Darren Powers
         dispatchGroup.enter()
         setHeight()
         print("After Set Height: \(self.heightM)")
@@ -171,7 +170,7 @@ class HomePageViewController: UIViewController {
     }
     
     func loadData () {
-        self.healthModel.authorizeHomepageElements()
+        self.healthModel.authorizeHomepageElements() //Added appropriate Auth: Darren Powers
         setBMI()
 //        setEnergy()
         //setDistanceAndTime()

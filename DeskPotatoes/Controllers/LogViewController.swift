@@ -4,7 +4,7 @@
 //
 //  Created by Siyuan Chen on 10/28/18.
 //  Copyright © 2018 Darren Powers. All rights reserved.
-//
+//  Coded by Siyuan Chen unless otherwise noted
 
 import UIKit
 import Firebase
@@ -21,7 +21,7 @@ class LogViewController: UIViewController {
             Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                 if (user != nil) {
                     print("user: \(String(describing: user))")
-                    self.performSegue(withIdentifier: "loginSegue", sender: self)
+                    self.performSegue(withIdentifier: "loginSegue", sender: self) //Segue added by Darren Powers
                 } else{
                     print("Email/password incorrect!")
                 }

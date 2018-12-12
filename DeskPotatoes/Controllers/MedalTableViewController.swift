@@ -4,7 +4,7 @@
 //
 //  Created by Terrell, Joshua on 11/1/18.
 //  Copyright © 2018 Darren Powers. All rights reserved.
-//
+// Coded by Joshua Terrell unless otherwise noted
 
 import UIKit
 import Firebase

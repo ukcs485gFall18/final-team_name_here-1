@@ -4,7 +4,7 @@
 //
 //  Created by Darren Powers on 10/12/2018.
 //  Copyright © 2018 Darren Powers. All rights reserved.
-//
+//  Coded by Darren Powers unless otherwise noted
 
 /* this class should hold methods to do work pertaining to
  * reading from and writing to the firebase database.
@@ -57,8 +57,8 @@ class FirebaseModel {
 
                     workouts.append(newWorkout)
                 }
-                self.group.leave()
             }
+            self.group.leave()
         }
         self.group.notify(queue: .main) {
             completion(workouts)

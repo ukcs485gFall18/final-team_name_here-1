@@ -4,7 +4,7 @@
 //
 //  Created by Darren Powers on 10/12/2018.
 //  Copyright © 2018 Darren Powers. All rights reserved.
-//
+//  Coded by Darren Powers unless otherwise noted
 
 import UIKit
 
